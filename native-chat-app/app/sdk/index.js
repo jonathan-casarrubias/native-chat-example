@@ -13,7 +13,7 @@
 * 2.- SocketIO Communication (PubSub).- WebSocket Communication for
 *     publish subscriptions.
 *
-*     Example: Room.createIO().subscribe(); <-- Listen for new rooms
+*     Example: Room.onCreate().subscribe(); <-- Listen for new rooms
 *     using web sockets.
 *
 * NOTE: Currently Socket Communication is only supported for Android
@@ -271,7 +271,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.__findById__accessTokensIO = function (id, fk) {
+    UserApi.prototype.onFindByIdAccessTokens = function (id, fk) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/:id/accessTokens/:fk";
         var urlParams = {
@@ -306,7 +306,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.__destroyById__accessTokensIO = function (id, fk) {
+    UserApi.prototype.onDestroyByIdAccessTokens = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/:id/accessTokens/:fk";
         var urlParams = {
@@ -349,7 +349,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    UserApi.prototype.__updateById__accessTokensIO = function (id, fk, data) {
+    UserApi.prototype.onUpdateByIdAccessTokens = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/:id/accessTokens/:fk";
@@ -391,7 +391,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.__get__accessTokensIO = function (id, filter) {
+    UserApi.prototype.onGetAccessTokens = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/:id/accessTokens";
@@ -434,7 +434,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    UserApi.prototype.__create__accessTokensIO = function (id, data) {
+    UserApi.prototype.onCreateAccessTokens = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/:id/accessTokens";
@@ -466,7 +466,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.__delete__accessTokensIO = function (id) {
+    UserApi.prototype.onDeleteAccessTokens = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/:id/accessTokens";
         var urlParams = {
@@ -502,7 +502,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.__count__accessTokensIO = function (id, where) {
+    UserApi.prototype.onCountAccessTokens = function (id, where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/:id/accessTokens/count";
@@ -538,7 +538,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    UserApi.prototype.createIO = function (data) {
+    UserApi.prototype.onCreate = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users";
@@ -572,7 +572,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    UserApi.prototype.createManyIO = function (data) {
+    UserApi.prototype.onCreateMany = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users";
@@ -606,7 +606,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    UserApi.prototype.upsertIO = function (data) {
+    UserApi.prototype.onUpsert = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users";
@@ -638,7 +638,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.existsIO = function (id) {
+    UserApi.prototype.onExists = function (id) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/:id/exists";
         var urlParams = {
@@ -678,7 +678,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.findByIdIO = function (id, filter) {
+    UserApi.prototype.onFindById = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/:id";
@@ -718,7 +718,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.findIO = function (filter) {
+    UserApi.prototype.onFind = function (filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users";
@@ -756,7 +756,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.findOneIO = function (filter) {
+    UserApi.prototype.onFindOne = function (filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/findOne";
@@ -796,7 +796,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    UserApi.prototype.updateAllIO = function (where, data) {
+    UserApi.prototype.onUpdateAll = function (where, data) {
         if (where === void 0) { where = undefined; }
         if (data === void 0) { data = undefined; }
         var method = "POST";
@@ -833,7 +833,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.deleteByIdIO = function (id) {
+    UserApi.prototype.onDeleteById = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/:id";
         var urlParams = {
@@ -868,7 +868,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.countIO = function (where) {
+    UserApi.prototype.onCount = function (where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/count";
@@ -909,7 +909,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    UserApi.prototype.updateAttributesIO = function (id, data) {
+    UserApi.prototype.onUpdateAttributes = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/:id";
@@ -944,7 +944,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, options);
         return result;
     };
-    UserApi.prototype.createChangeStreamIO = function (options) {
+    UserApi.prototype.onCreateChangeStream = function (options) {
         if (options === void 0) { options = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/change-stream";
@@ -997,7 +997,7 @@ var UserApi = (function (_super) {
         }, function () { return null; });
         return result;
     };
-    UserApi.prototype.loginIO = function (credentials, include) {
+    UserApi.prototype.onLogin = function (credentials, include) {
         if (include === void 0) { include = "user"; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/login";
@@ -1041,7 +1041,7 @@ var UserApi = (function (_super) {
         }, function () { return null; });
         return result;
     };
-    UserApi.prototype.logoutIO = function () {
+    UserApi.prototype.onLogout = function () {
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/logout";
         var urlParams = {};
@@ -1078,7 +1078,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    UserApi.prototype.confirmIO = function (uid, token, redirect) {
+    UserApi.prototype.onConfirm = function (uid, token, redirect) {
         if (redirect === void 0) { redirect = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/confirm";
@@ -1108,7 +1108,7 @@ var UserApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, options);
         return result;
     };
-    UserApi.prototype.resetPasswordIO = function (options) {
+    UserApi.prototype.onResetPassword = function (options) {
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/Users/reset";
         var urlParams = {};
@@ -1228,7 +1228,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__findById__accessTokensIO = function (id, fk) {
+    AccountApi.prototype.onFindByIdAccessTokens = function (id, fk) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens/:fk";
         var urlParams = {
@@ -1263,7 +1263,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__destroyById__accessTokensIO = function (id, fk) {
+    AccountApi.prototype.onDestroyByIdAccessTokens = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens/:fk";
         var urlParams = {
@@ -1306,7 +1306,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.__updateById__accessTokensIO = function (id, fk, data) {
+    AccountApi.prototype.onUpdateByIdAccessTokens = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens/:fk";
@@ -1345,7 +1345,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__findById__roomsIO = function (id, fk) {
+    AccountApi.prototype.onFindByIdRooms = function (id, fk) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
         var urlParams = {
@@ -1380,7 +1380,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__destroyById__roomsIO = function (id, fk) {
+    AccountApi.prototype.onDestroyByIdRooms = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
         var urlParams = {
@@ -1423,7 +1423,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.__updateById__roomsIO = function (id, fk, data) {
+    AccountApi.prototype.onUpdateByIdRooms = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
@@ -1467,7 +1467,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.__link__roomsIO = function (id, fk, data) {
+    AccountApi.prototype.onLinkRooms = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
@@ -1503,7 +1503,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__unlink__roomsIO = function (id, fk) {
+    AccountApi.prototype.onUnlinkRooms = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
         var urlParams = {
@@ -1541,7 +1541,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__exists__roomsIO = function (id, fk) {
+    AccountApi.prototype.onExistsRooms = function (id, fk) {
         var method = "HEAD";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
         var urlParams = {
@@ -1579,7 +1579,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__findById__messagesIO = function (id, fk) {
+    AccountApi.prototype.onFindByIdMessages = function (id, fk) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
         var urlParams = {
@@ -1614,7 +1614,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__destroyById__messagesIO = function (id, fk) {
+    AccountApi.prototype.onDestroyByIdMessages = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
         var urlParams = {
@@ -1657,7 +1657,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.__updateById__messagesIO = function (id, fk, data) {
+    AccountApi.prototype.onUpdateByIdMessages = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
@@ -1699,7 +1699,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__get__accessTokensIO = function (id, filter) {
+    AccountApi.prototype.onGetAccessTokens = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens";
@@ -1742,7 +1742,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.__create__accessTokensIO = function (id, data) {
+    AccountApi.prototype.onCreateAccessTokens = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens";
@@ -1774,7 +1774,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__delete__accessTokensIO = function (id) {
+    AccountApi.prototype.onDeleteAccessTokens = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens";
         var urlParams = {
@@ -1810,7 +1810,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__count__accessTokensIO = function (id, where) {
+    AccountApi.prototype.onCountAccessTokens = function (id, where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens/count";
@@ -1851,7 +1851,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__get__roomsIO = function (id, filter) {
+    AccountApi.prototype.onGetRooms = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
@@ -1894,7 +1894,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.__create__roomsIO = function (id, data) {
+    AccountApi.prototype.onCreateRooms = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
@@ -1926,7 +1926,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__delete__roomsIO = function (id) {
+    AccountApi.prototype.onDeleteRooms = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
         var urlParams = {
@@ -1962,7 +1962,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__count__roomsIO = function (id, where) {
+    AccountApi.prototype.onCountRooms = function (id, where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/count";
@@ -2003,7 +2003,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__get__messagesIO = function (id, filter) {
+    AccountApi.prototype.onGetMessages = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
@@ -2046,7 +2046,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.__create__messagesIO = function (id, data) {
+    AccountApi.prototype.onCreateMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
@@ -2078,7 +2078,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__delete__messagesIO = function (id) {
+    AccountApi.prototype.onDeleteMessages = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
         var urlParams = {
@@ -2114,7 +2114,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__count__messagesIO = function (id, where) {
+    AccountApi.prototype.onCountMessages = function (id, where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/count";
@@ -2150,7 +2150,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.createIO = function (data) {
+    AccountApi.prototype.onCreate = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts";
@@ -2184,7 +2184,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.createManyIO = function (data) {
+    AccountApi.prototype.onCreateMany = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts";
@@ -2218,7 +2218,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.upsertIO = function (data) {
+    AccountApi.prototype.onUpsert = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts";
@@ -2250,7 +2250,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.existsIO = function (id) {
+    AccountApi.prototype.onExists = function (id) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/exists";
         var urlParams = {
@@ -2290,7 +2290,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.findByIdIO = function (id, filter) {
+    AccountApi.prototype.onFindById = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id";
@@ -2330,7 +2330,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.findIO = function (filter) {
+    AccountApi.prototype.onFind = function (filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts";
@@ -2368,7 +2368,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.findOneIO = function (filter) {
+    AccountApi.prototype.onFindOne = function (filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/findOne";
@@ -2408,7 +2408,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.updateAllIO = function (where, data) {
+    AccountApi.prototype.onUpdateAll = function (where, data) {
         if (where === void 0) { where = undefined; }
         if (data === void 0) { data = undefined; }
         var method = "POST";
@@ -2445,7 +2445,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.deleteByIdIO = function (id) {
+    AccountApi.prototype.onDeleteById = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id";
         var urlParams = {
@@ -2480,7 +2480,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.countIO = function (where) {
+    AccountApi.prototype.onCount = function (where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/count";
@@ -2521,7 +2521,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.updateAttributesIO = function (id, data) {
+    AccountApi.prototype.onUpdateAttributes = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id";
@@ -2556,7 +2556,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, options);
         return result;
     };
-    AccountApi.prototype.createChangeStreamIO = function (options) {
+    AccountApi.prototype.onCreateChangeStream = function (options) {
         if (options === void 0) { options = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/change-stream";
@@ -2609,7 +2609,7 @@ var AccountApi = (function (_super) {
         }, function () { return null; });
         return result;
     };
-    AccountApi.prototype.loginIO = function (credentials, include) {
+    AccountApi.prototype.onLogin = function (credentials, include) {
         if (include === void 0) { include = "user"; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/login";
@@ -2653,7 +2653,7 @@ var AccountApi = (function (_super) {
         }, function () { return null; });
         return result;
     };
-    AccountApi.prototype.logoutIO = function () {
+    AccountApi.prototype.onLogout = function () {
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/logout";
         var urlParams = {};
@@ -2690,7 +2690,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.confirmIO = function (uid, token, redirect) {
+    AccountApi.prototype.onConfirm = function (uid, token, redirect) {
         if (redirect === void 0) { redirect = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/confirm";
@@ -2720,7 +2720,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, options);
         return result;
     };
-    AccountApi.prototype.resetPasswordIO = function (options) {
+    AccountApi.prototype.onResetPassword = function (options) {
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/reset";
         var urlParams = {};
@@ -2755,7 +2755,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__findById__Room__accountsIO = function (id, fk) {
+    AccountApi.prototype.onFindByIdRoomAccounts = function (id, fk) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
         var urlParams = {
@@ -2790,7 +2790,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__destroyById__Room__accountsIO = function (id, fk) {
+    AccountApi.prototype.onDestroyByIdRoomAccounts = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
         var urlParams = {
@@ -2833,7 +2833,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.__updateById__Room__accountsIO = function (id, fk, data) {
+    AccountApi.prototype.onUpdateByIdRoomAccounts = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
@@ -2877,7 +2877,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.__link__Room__accountsIO = function (id, fk, data) {
+    AccountApi.prototype.onLinkRoomAccounts = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
@@ -2913,7 +2913,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__unlink__Room__accountsIO = function (id, fk) {
+    AccountApi.prototype.onUnlinkRoomAccounts = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
         var urlParams = {
@@ -2951,7 +2951,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__exists__Room__accountsIO = function (id, fk) {
+    AccountApi.prototype.onExistsRoomAccounts = function (id, fk) {
         var method = "HEAD";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
         var urlParams = {
@@ -2992,7 +2992,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__get__Room__accountsIO = function (id, filter) {
+    AccountApi.prototype.onGetRoomAccounts = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
@@ -3035,7 +3035,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.__create__Room__accountsIO = function (id, data) {
+    AccountApi.prototype.onCreateRoomAccounts = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
@@ -3075,7 +3075,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.__createMany__Room__accountsIO = function (id, data) {
+    AccountApi.prototype.onCreateManyRoomAccounts = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
@@ -3107,7 +3107,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__delete__Room__accountsIO = function (id) {
+    AccountApi.prototype.onDeleteRoomAccounts = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
         var urlParams = {
@@ -3143,7 +3143,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__count__Room__accountsIO = function (id, where) {
+    AccountApi.prototype.onCountRoomAccounts = function (id, where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/count";
@@ -3184,7 +3184,7 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.__get__Message__accountIO = function (id, refresh) {
+    AccountApi.prototype.onGetMessageAccount = function (id, refresh) {
         if (refresh === void 0) { refresh = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages/:id/account";
@@ -3310,7 +3310,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__findById__accountsIO = function (id, fk) {
+    RoomApi.prototype.onFindByIdAccounts = function (id, fk) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
         var urlParams = {
@@ -3345,7 +3345,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__destroyById__accountsIO = function (id, fk) {
+    RoomApi.prototype.onDestroyByIdAccounts = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
         var urlParams = {
@@ -3388,7 +3388,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.__updateById__accountsIO = function (id, fk, data) {
+    RoomApi.prototype.onUpdateByIdAccounts = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
@@ -3432,7 +3432,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.__link__accountsIO = function (id, fk, data) {
+    RoomApi.prototype.onLinkAccounts = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
@@ -3468,7 +3468,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__unlink__accountsIO = function (id, fk) {
+    RoomApi.prototype.onUnlinkAccounts = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
         var urlParams = {
@@ -3506,7 +3506,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__exists__accountsIO = function (id, fk) {
+    RoomApi.prototype.onExistsAccounts = function (id, fk) {
         var method = "HEAD";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
         var urlParams = {
@@ -3544,7 +3544,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__findById__messagesIO = function (id, fk) {
+    RoomApi.prototype.onFindByIdMessages = function (id, fk) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
         var urlParams = {
@@ -3579,7 +3579,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__destroyById__messagesIO = function (id, fk) {
+    RoomApi.prototype.onDestroyByIdMessages = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
         var urlParams = {
@@ -3622,7 +3622,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.__updateById__messagesIO = function (id, fk, data) {
+    RoomApi.prototype.onUpdateByIdMessages = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
@@ -3664,7 +3664,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__get__accountsIO = function (id, filter) {
+    RoomApi.prototype.onGetAccounts = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
@@ -3707,7 +3707,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.__create__accountsIO = function (id, data) {
+    RoomApi.prototype.onCreateAccounts = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
@@ -3739,7 +3739,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__delete__accountsIO = function (id) {
+    RoomApi.prototype.onDeleteAccounts = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
         var urlParams = {
@@ -3775,7 +3775,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__count__accountsIO = function (id, where) {
+    RoomApi.prototype.onCountAccounts = function (id, where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/count";
@@ -3816,7 +3816,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__get__messagesIO = function (id, filter) {
+    RoomApi.prototype.onGetMessages = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
@@ -3859,7 +3859,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.__create__messagesIO = function (id, data) {
+    RoomApi.prototype.onCreateMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
@@ -3891,7 +3891,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__delete__messagesIO = function (id) {
+    RoomApi.prototype.onDeleteMessages = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
         var urlParams = {
@@ -3927,7 +3927,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__count__messagesIO = function (id, where) {
+    RoomApi.prototype.onCountMessages = function (id, where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/count";
@@ -3963,7 +3963,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.createIO = function (data) {
+    RoomApi.prototype.onCreate = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms";
@@ -3997,7 +3997,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.createManyIO = function (data) {
+    RoomApi.prototype.onCreateMany = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms";
@@ -4031,7 +4031,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.upsertIO = function (data) {
+    RoomApi.prototype.onUpsert = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms";
@@ -4063,7 +4063,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.existsIO = function (id) {
+    RoomApi.prototype.onExists = function (id) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/exists";
         var urlParams = {
@@ -4103,7 +4103,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.findByIdIO = function (id, filter) {
+    RoomApi.prototype.onFindById = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id";
@@ -4143,7 +4143,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.findIO = function (filter) {
+    RoomApi.prototype.onFind = function (filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms";
@@ -4181,7 +4181,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.findOneIO = function (filter) {
+    RoomApi.prototype.onFindOne = function (filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/findOne";
@@ -4221,7 +4221,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.updateAllIO = function (where, data) {
+    RoomApi.prototype.onUpdateAll = function (where, data) {
         if (where === void 0) { where = undefined; }
         if (data === void 0) { data = undefined; }
         var method = "POST";
@@ -4258,7 +4258,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.deleteByIdIO = function (id) {
+    RoomApi.prototype.onDeleteById = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id";
         var urlParams = {
@@ -4293,7 +4293,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.countIO = function (where) {
+    RoomApi.prototype.onCount = function (where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/count";
@@ -4334,7 +4334,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.updateAttributesIO = function (id, data) {
+    RoomApi.prototype.onUpdateAttributes = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id";
@@ -4369,7 +4369,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, options);
         return result;
     };
-    RoomApi.prototype.createChangeStreamIO = function (options) {
+    RoomApi.prototype.onCreateChangeStream = function (options) {
         if (options === void 0) { options = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/change-stream";
@@ -4405,7 +4405,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__findById__Account__roomsIO = function (id, fk) {
+    RoomApi.prototype.onFindByIdAccountRooms = function (id, fk) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
         var urlParams = {
@@ -4440,7 +4440,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__destroyById__Account__roomsIO = function (id, fk) {
+    RoomApi.prototype.onDestroyByIdAccountRooms = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
         var urlParams = {
@@ -4483,7 +4483,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.__updateById__Account__roomsIO = function (id, fk, data) {
+    RoomApi.prototype.onUpdateByIdAccountRooms = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
@@ -4527,7 +4527,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.__link__Account__roomsIO = function (id, fk, data) {
+    RoomApi.prototype.onLinkAccountRooms = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
@@ -4563,7 +4563,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__unlink__Account__roomsIO = function (id, fk) {
+    RoomApi.prototype.onUnlinkAccountRooms = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
         var urlParams = {
@@ -4601,7 +4601,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__exists__Account__roomsIO = function (id, fk) {
+    RoomApi.prototype.onExistsAccountRooms = function (id, fk) {
         var method = "HEAD";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
         var urlParams = {
@@ -4642,7 +4642,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__get__Account__roomsIO = function (id, filter) {
+    RoomApi.prototype.onGetAccountRooms = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
@@ -4685,7 +4685,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.__create__Account__roomsIO = function (id, data) {
+    RoomApi.prototype.onCreateAccountRooms = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
@@ -4725,7 +4725,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.__createMany__Account__roomsIO = function (id, data) {
+    RoomApi.prototype.onCreateManyAccountRooms = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
@@ -4757,7 +4757,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__delete__Account__roomsIO = function (id) {
+    RoomApi.prototype.onDeleteAccountRooms = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
         var urlParams = {
@@ -4793,7 +4793,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__count__Account__roomsIO = function (id, where) {
+    RoomApi.prototype.onCountAccountRooms = function (id, where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/count";
@@ -4834,7 +4834,7 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.__get__Message__roomIO = function (id, refresh) {
+    RoomApi.prototype.onGetMessageRoom = function (id, refresh) {
         if (refresh === void 0) { refresh = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages/:id/room";
@@ -4903,7 +4903,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__get__roomIO = function (id, refresh) {
+    MessageApi.prototype.onGetRoom = function (id, refresh) {
         if (refresh === void 0) { refresh = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages/:id/room";
@@ -4947,7 +4947,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__get__accountIO = function (id, refresh) {
+    MessageApi.prototype.onGetAccount = function (id, refresh) {
         if (refresh === void 0) { refresh = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages/:id/account";
@@ -4986,7 +4986,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.createIO = function (data) {
+    MessageApi.prototype.onCreate = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages";
@@ -5020,7 +5020,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.createManyIO = function (data) {
+    MessageApi.prototype.onCreateMany = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages";
@@ -5054,7 +5054,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.upsertIO = function (data) {
+    MessageApi.prototype.onUpsert = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages";
@@ -5086,7 +5086,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.existsIO = function (id) {
+    MessageApi.prototype.onExists = function (id) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages/:id/exists";
         var urlParams = {
@@ -5126,7 +5126,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.findByIdIO = function (id, filter) {
+    MessageApi.prototype.onFindById = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages/:id";
@@ -5166,7 +5166,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.findIO = function (filter) {
+    MessageApi.prototype.onFind = function (filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages";
@@ -5204,7 +5204,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.findOneIO = function (filter) {
+    MessageApi.prototype.onFindOne = function (filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages/findOne";
@@ -5244,7 +5244,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.updateAllIO = function (where, data) {
+    MessageApi.prototype.onUpdateAll = function (where, data) {
         if (where === void 0) { where = undefined; }
         if (data === void 0) { data = undefined; }
         var method = "POST";
@@ -5281,7 +5281,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.deleteByIdIO = function (id) {
+    MessageApi.prototype.onDeleteById = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages/:id";
         var urlParams = {
@@ -5316,7 +5316,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.countIO = function (where) {
+    MessageApi.prototype.onCount = function (where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages/count";
@@ -5357,7 +5357,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.updateAttributesIO = function (id, data) {
+    MessageApi.prototype.onUpdateAttributes = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages/:id";
@@ -5392,7 +5392,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, options);
         return result;
     };
-    MessageApi.prototype.createChangeStreamIO = function (options) {
+    MessageApi.prototype.onCreateChangeStream = function (options) {
         if (options === void 0) { options = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/messages/change-stream";
@@ -5428,7 +5428,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__findById__Account__messagesIO = function (id, fk) {
+    MessageApi.prototype.onFindByIdAccountMessages = function (id, fk) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
         var urlParams = {
@@ -5463,7 +5463,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__destroyById__Account__messagesIO = function (id, fk) {
+    MessageApi.prototype.onDestroyByIdAccountMessages = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
         var urlParams = {
@@ -5506,7 +5506,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.__updateById__Account__messagesIO = function (id, fk, data) {
+    MessageApi.prototype.onUpdateByIdAccountMessages = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
@@ -5548,7 +5548,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__get__Account__messagesIO = function (id, filter) {
+    MessageApi.prototype.onGetAccountMessages = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
@@ -5591,7 +5591,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.__create__Account__messagesIO = function (id, data) {
+    MessageApi.prototype.onCreateAccountMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
@@ -5631,7 +5631,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.__createMany__Account__messagesIO = function (id, data) {
+    MessageApi.prototype.onCreateManyAccountMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
@@ -5663,7 +5663,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__delete__Account__messagesIO = function (id) {
+    MessageApi.prototype.onDeleteAccountMessages = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
         var urlParams = {
@@ -5699,7 +5699,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__count__Account__messagesIO = function (id, where) {
+    MessageApi.prototype.onCountAccountMessages = function (id, where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/count";
@@ -5737,7 +5737,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__findById__Room__messagesIO = function (id, fk) {
+    MessageApi.prototype.onFindByIdRoomMessages = function (id, fk) {
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
         var urlParams = {
@@ -5772,7 +5772,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__destroyById__Room__messagesIO = function (id, fk) {
+    MessageApi.prototype.onDestroyByIdRoomMessages = function (id, fk) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
         var urlParams = {
@@ -5815,7 +5815,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.__updateById__Room__messagesIO = function (id, fk, data) {
+    MessageApi.prototype.onUpdateByIdRoomMessages = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
@@ -5857,7 +5857,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__get__Room__messagesIO = function (id, filter) {
+    MessageApi.prototype.onGetRoomMessages = function (id, filter) {
         if (filter === void 0) { filter = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
@@ -5900,7 +5900,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.__create__Room__messagesIO = function (id, data) {
+    MessageApi.prototype.onCreateRoomMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
@@ -5940,7 +5940,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.__createMany__Room__messagesIO = function (id, data) {
+    MessageApi.prototype.onCreateManyRoomMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
@@ -5972,7 +5972,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__delete__Room__messagesIO = function (id) {
+    MessageApi.prototype.onDeleteRoomMessages = function (id) {
         var method = "DELETE";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
         var urlParams = {
@@ -6008,7 +6008,7 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.__count__Room__messagesIO = function (id, where) {
+    MessageApi.prototype.onCountRoomMessages = function (id, where) {
         if (where === void 0) { where = undefined; }
         var method = "GET";
         var url = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/count";

@@ -1,0 +1,19 @@
+<StackLayout>
+    <Image src="res://nsa_logo" stretch="none" horizontalAlignment="center"></Image>
+    <TextField
+        #email
+        hint                   = "Email Address"
+        keyboardType           = "email"
+        [(ngModel)]            = "account.email"
+        autocorrect            = "false"
+        autocapitalizationType = "none">
+    </TextField>
+    <TextField
+        #password
+        hint        = "Password"
+        [(ngModel)] = "account.password"
+        secure      = "true">
+    </TextField>
+    <Button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" class="primary-btn" (tap)="submit()"></Button>
+    <Button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()"></Button>
+</StackLayout>

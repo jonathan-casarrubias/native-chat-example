@@ -6,7 +6,7 @@
     "start": "node .",
     "pretest": "jshint .",
     "posttest": "nsp check",
-    "build:sdk": "./node_modules/.bin/lb-ng server/server.js ../native-chat-app/app/sdk/index.ts -l nativescript2"
+    "build:sdk": "./node_modules/.bin/lb-ng server/server.js ../native-chat-app/app/sdk -l nativescript2 --io enabled"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -15,14 +15,13 @@
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.4.0",
-    "loopback-component-pubsub": "^1.0.10",
+    "loopback-component-pubsub": "^1.0.12",
     "loopback-datasource-juggler": "^2.39.0",
     "serve-favicon": "^2.0.1"
   },
   "devDependencies": {
     "jshint": "^2.5.6",
-    "loopback-sdk-builder": "^1.6.6",
-    "loopback-sdk-builder-cli": "^2.0.3",
+    "loopback-sdk-builder": "^2.0.0-beta4",
     "nsp": "^2.1.0"
   },
   "repository": {

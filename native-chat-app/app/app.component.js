@@ -1,24 +1,32 @@
 "use strict";
 var core_1 = require("@angular/core");
-var http_1 = require('@angular/http');
-var sdk_1 = require('./sdk');
+var shared_1 = require('./shared');
+var router_deprecated_1 = require("@angular/router-deprecated");
+var router_1 = require("nativescript-angular/router");
+var _sign_1 = require("./+sign");
+var _rooms_1 = require("./+rooms");
 var AppComponent = (function () {
-    function AppComponent(room) {
-        this.room = room;
-        // local network IP or public IP/DNS
-        sdk_1.LoopBackConfig.setBaseURL('http://192.168.100.5:3000');
-        sdk_1.LoopBackConfig.setApiVersion('api');
-        room.onCreate().subscribe(function (res) {
-            alert(res.name);
+    function AppComponent(_router, _account) {
+        var _this = this;
+        this._router = _router;
+        this._account = _account;
+        this._router.subscribe(function () {
+            if (!_this._account.isAuthenticated())
+                _this._router.navigate(['SignComponent']);
         });
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: "my-app",
-            template: "\n<StackLayout>\n    <Label text=\"Real Time App\" class=\"title\"></Label>\n</StackLayout>\n",
-            providers: [http_1.HTTP_PROVIDERS, sdk_1.RoomApi]
-        }), 
-        __metadata('design:paramtypes', [sdk_1.RoomApi])
+            directives: [router_1.NS_ROUTER_DIRECTIVES],
+            providers: [router_1.NS_ROUTER_PROVIDERS],
+            template: "<page-router-outlet></page-router-outlet>"
+        }),
+        router_deprecated_1.RouteConfig([
+            { path: "/sign", component: _sign_1.SignComponent, name: "SignComponent", useAsDefault: true },
+            { path: "/rooms", component: _rooms_1.RoomsComponent, name: "RoomsComponent" }
+        ]), 
+        __metadata('design:paramtypes', [router_deprecated_1.Router, shared_1.AccountApi])
     ], AppComponent);
     return AppComponent;
 }());

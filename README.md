@@ -31,9 +31,5 @@ Terminal 2:
 
 ```sh
 $ cd native-chat-app
-$ tns livesync android --watch
+$ tns run android
 ```
-
-If you create a room using the LoopBack API Explorer, you will be able to se an alert dialog with the name of the room you enter, just like:
-
-![Basic Test](http://mean.expert/css/images/posts/angular/io-test.gif)

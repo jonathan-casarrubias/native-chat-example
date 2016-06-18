@@ -1,0 +1,14 @@
+<ActionBar title="My Chat Room"></ActionBar>
+<GridLayout rows="auto, *"  class="small-spacing">
+  <GridLayout row="0" columns="*, auto">
+    <TextField [(ngModel)]="room.name" hint="New Room Name" col="0"></TextField>
+    <Button text="Add" col="1" (tap)="addRoom()"></Button>
+  </GridLayout>
+  <ListView [items]="rooms" row="1">
+    <template let-item="item">
+      <StackLayout>
+        <Label [text]="item.name" class="medium-spacing"></Label>
+      </StackLayout>
+    </template>
+  </ListView>
+</GridLayout>

@@ -1,24 +1,27 @@
 import { Component } from "@angular/core";
-import { HTTP_PROVIDERS } from '@angular/http';
-import { LoopBackConfig, RoomApi } from './sdk';
+import { Account, AccountApi } from './shared';
+import { Router, RouteConfig } from "@angular/router-deprecated";
+import { NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
+import { SignComponent } from "./+sign";
+import { RoomsComponent } from "./+rooms";
 
 @Component({
     selector: "my-app",
-    template: `
-<StackLayout>
-    <Label text="Real Time App" class="title"></Label>
-</StackLayout>
-`,
-    providers: [HTTP_PROVIDERS, RoomApi]
+    directives: [ NS_ROUTER_DIRECTIVES ],
+    providers: [ NS_ROUTER_PROVIDERS ],
+    template: "<page-router-outlet></page-router-outlet>"
 })
 
+@RouteConfig([
+  { path: "/sign", component: SignComponent, name: "SignComponent", useAsDefault: true },
+  { path: "/rooms", component: RoomsComponent, name: "RoomsComponent"  }
+])
+
 export class AppComponent {
-    constructor(private room: RoomApi) {
-        // local network IP or public IP/DNS
-        LoopBackConfig.setBaseURL('http://192.168.100.5:3000');
-        LoopBackConfig.setApiVersion('api');
-        room.onCreate().subscribe((res: { id: number | string, name: string }) => {
-            alert(res.name);
-        });
+    constructor(private _router: Router, private _account: AccountApi) {
+        this._router.subscribe(() => {
+            if (!this._account.isAuthenticated())
+            this._router.navigate(['SignComponent'])
+        })
     }
 }

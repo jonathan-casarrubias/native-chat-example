@@ -1,0 +1,1 @@
+{"version":3,"file":"socket.driver.js","sourceRoot":"","sources":["socket.driver.ts"],"names":[],"mappings":";AAAA,IAAI,QAAQ,GAAG,OAAO,CAAC,wBAAwB,CAAC,CAAC;AACjD;IAAA;IAIA,CAAC;IAHQ,oBAAO,GAAd,UAAe,GAAG,EAAE,OAAO;QACzB,MAAM,CAAC,QAAQ,CAAC,OAAO,CAAC,GAAG,EAAE,OAAO,CAAC,CAAC;IACxC,CAAC;IACH,mBAAC;AAAD,CAAC,AAJD,IAIC;AAJY,oBAAY,eAIxB,CAAA"}

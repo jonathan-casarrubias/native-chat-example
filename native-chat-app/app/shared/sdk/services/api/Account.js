@@ -48,17 +48,6 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onFindByIdAccessTokens = function (id, fk) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Delete a related item by id for accessTokens.
      *
@@ -163,17 +152,6 @@ var AccountApi = (function (_super) {
         };
         var params = {};
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    AccountApi.prototype.onFindByIdRooms = function (id, fk) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -361,17 +339,6 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onExistsRooms = function (id, fk) {
-        var method = "HEAD";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find a related item by id for messages.
      *
@@ -397,17 +364,6 @@ var AccountApi = (function (_super) {
         };
         var params = {};
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    AccountApi.prototype.onFindByIdMessages = function (id, fk) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -519,20 +475,6 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onGetAccessTokens = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Creates a new instance in accessTokens of this model.
      *
@@ -630,17 +572,6 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onCountAccessTokens = function (id, where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens/count";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Queries rooms of Account.
      *
@@ -669,20 +600,6 @@ var AccountApi = (function (_super) {
             params.filter = filter;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    AccountApi.prototype.onGetRooms = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -782,17 +699,6 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onCountRooms = function (id, where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/count";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Queries messages of Account.
      *
@@ -821,20 +727,6 @@ var AccountApi = (function (_super) {
             params.filter = filter;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    AccountApi.prototype.onGetMessages = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -932,17 +824,6 @@ var AccountApi = (function (_super) {
         };
         var params = {};
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    AccountApi.prototype.onCountMessages = function (id, where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages/count";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -1070,16 +951,6 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onExists = function (id) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/exists";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find a model instance by id from the data source.
      *
@@ -1110,20 +981,6 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onFindById = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find all instances of the model matched by filter from the data source.
      *
@@ -1150,18 +1007,6 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onFind = function (filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts";
-        var urlParams = {};
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find first instance of the model matched by filter from the data source.
      *
@@ -1186,18 +1031,6 @@ var AccountApi = (function (_super) {
             params.filter = filter;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    AccountApi.prototype.onFindOne = function (filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/findOne";
-        var urlParams = {};
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -1298,18 +1131,6 @@ var AccountApi = (function (_super) {
             params.where = where;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    AccountApi.prototype.onCount = function (where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/count";
-        var urlParams = {};
-        var params = {};
-        if (where !== undefined) {
-            params.where = where;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -1429,25 +1250,6 @@ var AccountApi = (function (_super) {
         }, function () { return null; });
         return result;
     };
-    AccountApi.prototype.onLogin = function (credentials, include) {
-        var _this = this;
-        if (include === void 0) { include = "user"; }
-        var method = "POST";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/login";
-        var urlParams = {};
-        var params = {};
-        if (include !== undefined) {
-            params.include = include;
-        }
-        var result = this.request(method, url, urlParams, params, credentials, true)
-            .share();
-        result.subscribe(function (response) {
-            _this.auth.setUser(response.id, response.userId, response.user);
-            _this.auth.setRememberMe(true);
-            _this.auth.save();
-        }, function () { return null; });
-        return result;
-    };
     /**
      * Logout a user with access token.
      *
@@ -1468,20 +1270,6 @@ var AccountApi = (function (_super) {
         var urlParams = {};
         var params = {};
         var result = this.request(method, url, urlParams, params)
-            .share();
-        result.subscribe(function () {
-            _this.auth.clearUser();
-            _this.auth.clearStorage();
-        }, function () { return null; });
-        return result;
-    };
-    AccountApi.prototype.onLogout = function () {
-        var _this = this;
-        var method = "POST";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/logout";
-        var urlParams = {};
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true)
             .share();
         result.subscribe(function () {
             _this.auth.clearUser();
@@ -1513,15 +1301,6 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onConfirm = function (uid, token, redirect) {
-        if (redirect === void 0) { redirect = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/confirm";
-        var urlParams = {};
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Reset password for a user with email.
      *
@@ -1541,14 +1320,6 @@ var AccountApi = (function (_super) {
         var urlParams = {};
         var params = {};
         var result = this.request(method, url, urlParams, params, options);
-        return result;
-    };
-    AccountApi.prototype.onResetPassword = function (options) {
-        var method = "POST";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/reset";
-        var urlParams = {};
-        var params = {};
-        var result = this.request(method, url, urlParams, params, options, true);
         return result;
     };
     /**
@@ -1576,17 +1347,6 @@ var AccountApi = (function (_super) {
         };
         var params = {};
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    AccountApi.prototype.onFindByIdRoomAccounts = function (id, fk) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -1774,17 +1534,6 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onExistsRoomAccounts = function (id, fk) {
-        var method = "HEAD";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Queries accounts of Room.
      *
@@ -1813,20 +1562,6 @@ var AccountApi = (function (_super) {
             params.filter = filter;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    AccountApi.prototype.onGetRoomAccounts = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -1966,17 +1701,6 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onCountRoomAccounts = function (id, where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/count";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Fetches belongsTo relation account.
      *
@@ -2005,20 +1729,6 @@ var AccountApi = (function (_super) {
             params.refresh = refresh;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    AccountApi.prototype.onGetMessageAccount = function (id, refresh) {
-        if (refresh === void 0) { refresh = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/messages/:id/account";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (refresh !== undefined) {
-            params.refresh = refresh;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**

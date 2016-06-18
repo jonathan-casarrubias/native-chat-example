@@ -51,20 +51,6 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.onGetRoom = function (id, refresh) {
-        if (refresh === void 0) { refresh = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/messages/:id/room";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (refresh !== undefined) {
-            params.refresh = refresh;
-        }
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Fetches belongsTo relation account.
      *
@@ -93,20 +79,6 @@ var MessageApi = (function (_super) {
             params.refresh = refresh;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    MessageApi.prototype.onGetAccount = function (id, refresh) {
-        if (refresh === void 0) { refresh = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/messages/:id/account";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (refresh !== undefined) {
-            params.refresh = refresh;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -234,16 +206,6 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.onExists = function (id) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/messages/:id/exists";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find a model instance by id from the data source.
      *
@@ -274,20 +236,6 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.onFindById = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/messages/:id";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find all instances of the model matched by filter from the data source.
      *
@@ -314,18 +262,6 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.onFind = function (filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/messages";
-        var urlParams = {};
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find first instance of the model matched by filter from the data source.
      *
@@ -350,18 +286,6 @@ var MessageApi = (function (_super) {
             params.filter = filter;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    MessageApi.prototype.onFindOne = function (filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/messages/findOne";
-        var urlParams = {};
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -464,18 +388,6 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.onCount = function (where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/messages/count";
-        var urlParams = {};
-        var params = {};
-        if (where !== undefined) {
-            params.where = where;
-        }
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Update attributes for a model instance and persist it into the data source.
      *
@@ -574,17 +486,6 @@ var MessageApi = (function (_super) {
         };
         var params = {};
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    MessageApi.prototype.onFindByIdAccountMessages = function (id, fk) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -694,20 +595,6 @@ var MessageApi = (function (_super) {
             params.filter = filter;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    MessageApi.prototype.onGetAccountMessages = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -847,17 +734,6 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.onCountAccountMessages = function (id, where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages/count";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find a related item by id for messages.
      *
@@ -883,17 +759,6 @@ var MessageApi = (function (_super) {
         };
         var params = {};
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    MessageApi.prototype.onFindByIdRoomMessages = function (id, fk) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -1003,20 +868,6 @@ var MessageApi = (function (_super) {
             params.filter = filter;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    MessageApi.prototype.onGetRoomMessages = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -1154,17 +1005,6 @@ var MessageApi = (function (_super) {
         };
         var params = {};
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    MessageApi.prototype.onCountRoomMessages = function (id, where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages/count";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**

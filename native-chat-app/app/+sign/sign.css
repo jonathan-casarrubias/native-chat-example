@@ -13,3 +13,10 @@ Button, TextField {
   margin-right: 16;
   margin-bottom: 10;
 }
+
+.background {
+  background-image: url("res://bg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

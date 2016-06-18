@@ -48,17 +48,6 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onFindByIdAccounts = function (id, fk) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Delete a related item by id for accounts.
      *
@@ -244,17 +233,6 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onExistsAccounts = function (id, fk) {
-        var method = "HEAD";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find a related item by id for messages.
      *
@@ -280,17 +258,6 @@ var RoomApi = (function (_super) {
         };
         var params = {};
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    RoomApi.prototype.onFindByIdMessages = function (id, fk) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -402,20 +369,6 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onGetAccounts = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Creates a new instance in accounts of this model.
      *
@@ -513,17 +466,6 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onCountAccounts = function (id, where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/count";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Queries messages of Room.
      *
@@ -552,20 +494,6 @@ var RoomApi = (function (_super) {
             params.filter = filter;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    RoomApi.prototype.onGetMessages = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -663,17 +591,6 @@ var RoomApi = (function (_super) {
         };
         var params = {};
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    RoomApi.prototype.onCountMessages = function (id, where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages/count";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -801,16 +718,6 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onExists = function (id) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/exists";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find a model instance by id from the data source.
      *
@@ -841,20 +748,6 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onFindById = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find all instances of the model matched by filter from the data source.
      *
@@ -881,18 +774,6 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onFind = function (filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms";
-        var urlParams = {};
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Find first instance of the model matched by filter from the data source.
      *
@@ -917,18 +798,6 @@ var RoomApi = (function (_super) {
             params.filter = filter;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    RoomApi.prototype.onFindOne = function (filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/findOne";
-        var urlParams = {};
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -1031,18 +900,6 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onCount = function (where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/count";
-        var urlParams = {};
-        var params = {};
-        if (where !== undefined) {
-            params.where = where;
-        }
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Update attributes for a model instance and persist it into the data source.
      *
@@ -1141,17 +998,6 @@ var RoomApi = (function (_super) {
         };
         var params = {};
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    RoomApi.prototype.onFindByIdAccountRooms = function (id, fk) {
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -1339,17 +1185,6 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onExistsAccountRooms = function (id, fk) {
-        var method = "HEAD";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
-        var urlParams = {
-            id: id,
-            fk: fk
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Queries rooms of Account.
      *
@@ -1378,20 +1213,6 @@ var RoomApi = (function (_super) {
             params.filter = filter;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    RoomApi.prototype.onGetAccountRooms = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (filter !== undefined) {
-            params.filter = filter;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**
@@ -1531,17 +1352,6 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onCountAccountRooms = function (id, where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/count";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, true);
-        return result;
-    };
     /**
      * Fetches belongsTo relation room.
      *
@@ -1570,20 +1380,6 @@ var RoomApi = (function (_super) {
             params.refresh = refresh;
         }
         var result = this.request(method, url, urlParams, params);
-        return result;
-    };
-    RoomApi.prototype.onGetMessageRoom = function (id, refresh) {
-        if (refresh === void 0) { refresh = undefined; }
-        var method = "GET";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/messages/:id/room";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        if (refresh !== undefined) {
-            params.refresh = refresh;
-        }
-        var result = this.request(method, url, urlParams, params, true);
         return result;
     };
     /**

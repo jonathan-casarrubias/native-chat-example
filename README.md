@@ -33,3 +33,5 @@ Terminal 2:
 $ cd native-chat-app
 $ tns run android
 ```
+
+**IMPORTANT: Make sure to update the file: native-chat-app/app/shared/base.api.ts with your local network IP**

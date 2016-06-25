@@ -48,6 +48,11 @@ var BaseLoopBackApi = (function () {
             requestUrl = requestUrl.replace(new RegExp(":" + key + "(\/|$)", "g"), urlParams[key] + "$1");
         }
         if (isio) {
+            if (requestUrl.match(/fk/)) {
+                var arr = requestUrl.split('/');
+                arr.pop();
+                requestUrl = arr.join('/');
+            }
             var event_1 = ("[" + method + "]" + requestUrl).replace(/\?/, '');
             var subject_1 = new Subject_1.Subject();
             var socket = socket_connections_1.SocketConnections.getHandler(config_service_1.LoopBackConfig.getPath(), {

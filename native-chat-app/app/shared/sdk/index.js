@@ -19,7 +19,7 @@ exports.API_PROVIDERS = [
     api_service_1.RoomApi,
     api_service_1.MessageApi
 ];
-__export(require('./models'));
+__export(require('./models/index'));
 __export(require('./services/api.service'));
 __export(require('./services/config.service'));
 __export(require('./services/auth.service'));

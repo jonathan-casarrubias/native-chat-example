@@ -1,0 +1,16 @@
+.message-bubble {
+  border-radius: 10;
+  padding: 10;
+}
+
+.message-user {
+  font-weight: bold;
+}
+
+.current {
+  background-color: #FCF6DB;
+}
+
+.remote{
+  background-color: #E6F3F6;
+}

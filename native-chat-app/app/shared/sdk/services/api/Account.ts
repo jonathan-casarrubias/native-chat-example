@@ -85,12 +85,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params);
     return result;
   }
-  public onDestroyByIdAccessTokens(id: any, fk: any) {
+  public onDestroyByIdAccessTokens(id: any) {
     let method: string = "DELETE";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -132,12 +131,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateByIdAccessTokens(id: any, fk: any, data: any = undefined) {
+  public onUpdateByIdAccessTokens(id: any,  data: any = undefined) {
     let method: string = "PUT";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -203,12 +201,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params);
     return result;
   }
-  public onDestroyByIdRooms(id: any, fk: any) {
+  public onDestroyByIdRooms(id: any) {
     let method: string = "DELETE";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -250,12 +247,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateByIdRooms(id: any, fk: any, data: any = undefined) {
+  public onUpdateByIdRooms(id: any,  data: any = undefined) {
     let method: string = "PUT";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -297,12 +293,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onLinkRooms(id: any, fk: any, data: any = undefined) {
+  public onLinkRooms(id: any,  data: any = undefined) {
     let method: string = "PUT";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -337,12 +332,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params);
     return result;
   }
-  public onUnlinkRooms(id: any, fk: any) {
+  public onUnlinkRooms(id: any) {
     let method: string = "DELETE";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -439,12 +433,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params);
     return result;
   }
-  public onDestroyByIdMessages(id: any, fk: any) {
+  public onDestroyByIdMessages(id: any) {
     let method: string = "DELETE";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -486,12 +479,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateByIdMessages(id: any, fk: any, data: any = undefined) {
+  public onUpdateByIdMessages(id: any,  data: any = undefined) {
     let method: string = "PUT";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -563,7 +555,7 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onCreateAccessTokens(id: any, data: any = undefined) {
+  public onCreateAccessTokens(id: any,  data: any = undefined) {
     let method: string = "POST";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens";
     let urlParams: any = {
@@ -704,7 +696,7 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onCreateRooms(id: any, data: any = undefined) {
+  public onCreateRooms(id: any,  data: any = undefined) {
     let method: string = "POST";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
     let urlParams: any = {
@@ -845,7 +837,7 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onCreateMessages(id: any, data: any = undefined) {
+  public onCreateMessages(id: any,  data: any = undefined) {
     let method: string = "POST";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
     let urlParams: any = {
@@ -951,45 +943,6 @@ export class AccountApi extends BaseLoopBackApi {
     return result;
   }
   public onCreate(data: any = undefined) {
-    let method: string = "POST";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts";
-    let urlParams: any = {
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
-    return result;
-  }
-
-  /**
-   * Create a new instance of the model and persist it into the data source.
-   *
-   * @param object data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns object[] An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Account` object.)
-   * </em>
-   */
-  public createMany(data: any = undefined) {
-    let method: string = "POST";
-
-    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts";
-    let urlParams: any = {
-    };
-
-    let params: any = {};
-
-    let result = this.request(method, url, urlParams, params, data);
-    return result;
-  }
-  public onCreateMany(data: any = undefined) {
     let method: string = "POST";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts";
     let urlParams: any = {
@@ -1189,7 +1142,7 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateAll(where: any = undefined, data: any = undefined) {
+  public onUpdateAll(where: any = undefined,  data: any = undefined) {
     let method: string = "POST";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/update";
     let urlParams: any = {
@@ -1302,7 +1255,7 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateAttributes(id: any, data: any = undefined) {
+  public onUpdateAttributes(id: any,  data: any = undefined) {
     let method: string = "PUT";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id";
     let urlParams: any = {
@@ -1548,12 +1501,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params);
     return result;
   }
-  public onDestroyByIdRoomAccounts(id: any, fk: any) {
+  public onDestroyByIdRoomAccounts(id: any) {
     let method: string = "DELETE";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -1595,12 +1547,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateByIdRoomAccounts(id: any, fk: any, data: any = undefined) {
+  public onUpdateByIdRoomAccounts(id: any,  data: any = undefined) {
     let method: string = "PUT";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -1642,12 +1593,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onLinkRoomAccounts(id: any, fk: any, data: any = undefined) {
+  public onLinkRoomAccounts(id: any,  data: any = undefined) {
     let method: string = "PUT";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -1682,12 +1632,11 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params);
     return result;
   }
-  public onUnlinkRoomAccounts(id: any, fk: any) {
+  public onUnlinkRoomAccounts(id: any) {
     let method: string = "DELETE";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -1790,50 +1739,7 @@ export class AccountApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onCreateRoomAccounts(id: any, data: any = undefined) {
-    let method: string = "POST";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
-    return result;
-  }
-
-  /**
-   * Creates a new instance in accounts of this model.
-   *
-   * @param any id PersistedModel id
-   *
-   * @param object data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns object[] An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Account` object.)
-   * </em>
-   */
-  public createManyRoomAccounts(id: any, data: any = undefined) {
-    let method: string = "POST";
-
-    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-
-    let result = this.request(method, url, urlParams, params, data);
-    return result;
-  }
-  public onCreateManyRoomAccounts(id: any, data: any = undefined) {
+  public onCreateRoomAccounts(id: any,  data: any = undefined) {
     let method: string = "POST";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
     let urlParams: any = {
@@ -1945,8 +1851,8 @@ export class AccountApi extends BaseLoopBackApi {
 
   /**
    * @ngdoc method
-   * @name lbServices.Account#getCurrent
-   * @methodOf lbServices.Account
+   * @name sdk.Account#getCurrent
+   * @methodOf sdk.Account
    *
    * @description
    *
@@ -1983,8 +1889,8 @@ export class AccountApi extends BaseLoopBackApi {
 
   /**
    * Get data of the currently logged user that was returned by the last
-   * call to {@link lbServices.Account#login} or
-   * {@link lbServices.Account#getCurrent}. Return null when there
+   * call to {@link sdk.Account#login} or
+   * {@link sdk.Account#getCurrent}. Return null when there
    * is no user logged in or the data of the current user were not fetched
    * yet.
    *
@@ -1995,7 +1901,7 @@ export class AccountApi extends BaseLoopBackApi {
   }
 
   /**
-   * @name lbServices.Account#isAuthenticated
+   * @name sdk.Account#isAuthenticated
    *
    * @returns {boolean} True if the current user is authenticated (logged in).
    */
@@ -2004,7 +1910,7 @@ export class AccountApi extends BaseLoopBackApi {
   }
 
   /**
-   * @name lbServices.Account#getCurrentId
+   * @name sdk.Account#getCurrentId
    *
    * @returns object Id of the currently logged-in user or null.
    */

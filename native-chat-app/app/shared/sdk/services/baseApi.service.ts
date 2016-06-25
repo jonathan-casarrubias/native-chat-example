@@ -51,6 +51,10 @@ export abstract class BaseLoopBackApi {
     }
 
     if (isio) {
+      if (requestUrl.match(/fk/)) {
+        let arr = requestUrl.split('/'); arr.pop();
+        requestUrl = arr.join('/');
+      }
       let event = (`[${method}]${requestUrl}`).replace(/\?/, '');
       let subject = new Subject();
       let socket = SocketConnections.getHandler(LoopBackConfig.getPath(), {

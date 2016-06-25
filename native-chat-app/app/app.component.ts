@@ -3,7 +3,7 @@ import { Account, AccountApi } from './shared';
 import { Router, RouteConfig } from "@angular/router-deprecated";
 import { NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
 import { SignComponent } from "./+sign";
-import { RoomsComponent } from "./+rooms";
+import { RoomsComponent, RoomComponent } from "./+rooms"; // Add to tuto
 
 @Component({
     selector: "my-app",
@@ -14,7 +14,8 @@ import { RoomsComponent } from "./+rooms";
 
 @RouteConfig([
   { path: "/sign", component: SignComponent, name: "SignComponent", useAsDefault: true },
-  { path: "/rooms", component: RoomsComponent, name: "RoomsComponent"  }
+  { path: "/rooms", component: RoomsComponent, name: "RoomsComponent"  },
+  { path: "/rooms/:id", component: RoomComponent, name: "RoomComponent"  } // Add to tuto
 ])
 
 export class AppComponent {

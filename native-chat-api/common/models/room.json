@@ -7,7 +7,13 @@
     "validateUpsert": true
   },
   "mixins": {
-    "PubSub": true
+    "PubSub": {
+      "filters": {
+        "__create__messages": {
+          "include": "account"
+        }
+      }
+    }
   },
   "properties": {
     "name": {

@@ -3,6 +3,7 @@
     "mountPath": "/explorer"
   },
   "loopback-component-pubsub": {
-    "auth": false
+    "auth": false,
+    "debug": false
   }
 }

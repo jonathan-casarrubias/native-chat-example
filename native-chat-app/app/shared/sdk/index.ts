@@ -19,7 +19,7 @@ export const API_PROVIDERS: any[] = [
   RoomApi,
   MessageApi
 ];
-export * from './models';
+export * from './models/index';
 export * from './services/api.service';
 export * from './services/config.service';
 export * from './services/auth.service';

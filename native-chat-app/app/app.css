@@ -5,13 +5,19 @@ Page {
   font-size: 15;
 }
 
+ActionBar {
+  padding-top: 20;
+  background-color: #000B31;
+  color: white;
+}
+
 TextField {
-  padding: 10;
+  padding: 15;
   font-size: 16;
 }
 
 Button {
-  padding: 20px auto;
+  padding: 20 auto;
 }
 
 .small-spacing {
@@ -20,6 +26,13 @@ Button {
 
 .medium-spacing {
   margin: 15;
+}
+
+.text-box {
+  font-size: 16;
+  background-color: #f6f6f6;
+  border-radius: 10;
+  margin-bottom: 10;
 }
 
 .primary-btn {

@@ -18,8 +18,6 @@ var SignComponent = (function () {
     }
     SignComponent.prototype.ngOnInit = function () {
         this._page.actionBarHidden = true;
-        this._page.backgroundImage = "res://bg";
-        this._page.className = "no-repeat";
     };
     SignComponent.prototype.ngAfterViewInit = function () {
         this.setTextFieldColors();

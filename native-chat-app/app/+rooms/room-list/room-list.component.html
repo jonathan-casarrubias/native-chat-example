@@ -1,0 +1,13 @@
+<ActionBar title="My Rooms"></ActionBar>
+<GridLayout rows="auto, *"  class="small-spacing">
+  <GridLayout row="0" columns="*">
+    <TextField [(ngModel)]="room.name" hint="Add new room..." col="0" (returnPress)="addRoom()" class="text-box"></TextField>
+  </GridLayout>
+  <ListView [items]="rooms" row="1">
+    <template let-item="item">
+      <StackLayout>
+        <Label (tap)="join(item)" [text]="item.name" class="medium-spacing"></Label>
+      </StackLayout>
+    </template>
+  </ListView>
+</GridLayout>

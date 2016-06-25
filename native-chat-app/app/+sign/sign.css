@@ -20,3 +20,7 @@ Button, TextField {
   background-size: cover;
   background-position: center;
 }
+
+.logo {
+  width: 50%;
+}

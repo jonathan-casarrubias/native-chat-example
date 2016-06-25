@@ -40,8 +40,6 @@ export class SignComponent {
 
     ngOnInit() {
         this._page.actionBarHidden = true;
-        this._page.backgroundImage = "res://bg";
-        this._page.className = "no-repeat"
     }
 
     ngAfterViewInit() {

@@ -72,12 +72,11 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onDestroyByIdAccessTokens = function (id, fk) {
+    AccountApi.prototype.onDestroyByIdAccessTokens = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -115,13 +114,12 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.onUpdateByIdAccessTokens = function (id, fk, data) {
+    AccountApi.prototype.onUpdateByIdAccessTokens = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/accessTokens/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -178,12 +176,11 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onDestroyByIdRooms = function (id, fk) {
+    AccountApi.prototype.onDestroyByIdRooms = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -221,13 +218,12 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.onUpdateByIdRooms = function (id, fk, data) {
+    AccountApi.prototype.onUpdateByIdRooms = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -265,13 +261,12 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.onLinkRooms = function (id, fk, data) {
+    AccountApi.prototype.onLinkRooms = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -301,12 +296,11 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onUnlinkRooms = function (id, fk) {
+    AccountApi.prototype.onUnlinkRooms = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -390,12 +384,11 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onDestroyByIdMessages = function (id, fk) {
+    AccountApi.prototype.onDestroyByIdMessages = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -433,13 +426,12 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.onUpdateByIdMessages = function (id, fk, data) {
+    AccountApi.prototype.onUpdateByIdMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -852,40 +844,6 @@ var AccountApi = (function (_super) {
         return result;
     };
     AccountApi.prototype.onCreate = function (data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts";
-        var urlParams = {};
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data, true);
-        return result;
-    };
-    /**
-     * Create a new instance of the model and persist it into the data source.
-     *
-     * @param object data Request data.
-     *
-     * This method expects a subset of model properties as request parameters.
-     *
-     * @returns object[] An empty reference that will be
-     *   populated with the actual data once the response is returned
-     *   from the server.
-     *
-     * <em>
-     * (The remote method definition does not provide any description.
-     * This usually means the response is a `Account` object.)
-     * </em>
-     */
-    AccountApi.prototype.createMany = function (data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = config_service_1.LoopBackConfig.getPath() + "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts";
-        var urlParams = {};
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data);
-        return result;
-    };
-    AccountApi.prototype.onCreateMany = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts";
@@ -1373,12 +1331,11 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onDestroyByIdRoomAccounts = function (id, fk) {
+    AccountApi.prototype.onDestroyByIdRoomAccounts = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -1416,13 +1373,12 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.onUpdateByIdRoomAccounts = function (id, fk, data) {
+    AccountApi.prototype.onUpdateByIdRoomAccounts = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -1460,13 +1416,12 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    AccountApi.prototype.onLinkRoomAccounts = function (id, fk, data) {
+    AccountApi.prototype.onLinkRoomAccounts = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -1496,12 +1451,11 @@ var AccountApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    AccountApi.prototype.onUnlinkRoomAccounts = function (id, fk) {
+    AccountApi.prototype.onUnlinkRoomAccounts = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -1605,46 +1559,6 @@ var AccountApi = (function (_super) {
         return result;
     };
     /**
-     * Creates a new instance in accounts of this model.
-     *
-     * @param any id PersistedModel id
-     *
-     * @param object data Request data.
-     *
-     * This method expects a subset of model properties as request parameters.
-     *
-     * @returns object[] An empty reference that will be
-     *   populated with the actual data once the response is returned
-     *   from the server.
-     *
-     * <em>
-     * (The remote method definition does not provide any description.
-     * This usually means the response is a `Account` object.)
-     * </em>
-     */
-    AccountApi.prototype.createManyRoomAccounts = function (id, data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = config_service_1.LoopBackConfig.getPath() + "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data);
-        return result;
-    };
-    AccountApi.prototype.onCreateManyRoomAccounts = function (id, data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data, true);
-        return result;
-    };
-    /**
      * Deletes all accounts of this model.
      *
      * @param any id PersistedModel id
@@ -1733,8 +1647,8 @@ var AccountApi = (function (_super) {
     };
     /**
      * @ngdoc method
-     * @name lbServices.Account#getCurrent
-     * @methodOf lbServices.Account
+     * @name sdk.Account#getCurrent
+     * @methodOf sdk.Account
      *
      * @description
      *
@@ -1766,8 +1680,8 @@ var AccountApi = (function (_super) {
     };
     /**
      * Get data of the currently logged user that was returned by the last
-     * call to {@link lbServices.Account#login} or
-     * {@link lbServices.Account#getCurrent}. Return null when there
+     * call to {@link sdk.Account#login} or
+     * {@link sdk.Account#getCurrent}. Return null when there
      * is no user logged in or the data of the current user were not fetched
      * yet.
      *
@@ -1777,7 +1691,7 @@ var AccountApi = (function (_super) {
         return this.auth.getCurrentUserData();
     };
     /**
-     * @name lbServices.Account#isAuthenticated
+     * @name sdk.Account#isAuthenticated
      *
      * @returns {boolean} True if the current user is authenticated (logged in).
      */
@@ -1785,7 +1699,7 @@ var AccountApi = (function (_super) {
         return this.getCurrentId() != null;
     };
     /**
-     * @name lbServices.Account#getCurrentId
+     * @name sdk.Account#getCurrentId
      *
      * @returns object Id of the currently logged-in user or null.
      */

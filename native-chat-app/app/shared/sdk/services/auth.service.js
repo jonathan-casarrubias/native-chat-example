@@ -1,7 +1,7 @@
 "use strict";
 /* tslint:disable */
 var core_1 = require('@angular/core');
-var AppSettings = require('application-settings');
+var storage_driver_1 = require('../storage/storage.driver');
 var LoopBackAuth = (function () {
     function LoopBackAuth() {
         this.propsPrefix = '$LoopBack$';
@@ -60,7 +60,7 @@ var LoopBackAuth = (function () {
             if (value == null) {
                 value = '';
             }
-            AppSettings.setString(key, String(value));
+            storage_driver_1.StorageDriver.set(key, value);
         }
         catch (err) {
             console.log('Cannot access local/session storage:', err);
@@ -68,7 +68,7 @@ var LoopBackAuth = (function () {
     };
     LoopBackAuth.prototype.load = function (name) {
         var key = this.propsPrefix + name;
-        return AppSettings.getString(key);
+        return storage_driver_1.StorageDriver.get(key);
     };
     LoopBackAuth = __decorate([
         core_1.Injectable(), 

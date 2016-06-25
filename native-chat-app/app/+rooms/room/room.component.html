@@ -1,0 +1,51 @@
+<ActionBar *ngIf="room" title="{{ room.name }}">
+  <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="_router.navigate(['RoomsComponent'])"></NavigationButton>
+</ActionBar>
+<TabView selectedIndex="1" selectedColor="#FF0000">
+  <StackLayout *tabItem="{ title: 'Messages' }">
+    <GridLayout rows="auto, *" class="small-spacing">
+      <GridLayout row="0" columns="*, auto">
+        <TextField
+          [(ngModel)]="message.text"
+          hint="Enter a message..."
+          returnKeyType="done"
+          (returnPress)="sendMessage()"
+          col="0"
+          class="text-box">
+        </TextField>
+      </GridLayout>
+      <ScrollView row="1">
+        <ListView [items]="messages" row="1">
+          <template let-item="item">
+            <StackLayout [className]="loggedId == item.account.id ? 'message-bubble current' : 'message-bubble remote'" >
+              <Label text="{{ item.account.email + ' says:' }}" class="message-user"></Label>
+              <Label [text]="item.text"></Label>
+            </StackLayout>
+          </template>
+        </ListView>
+     </ScrollView>
+    </GridLayout>
+  </StackLayout>
+  <StackLayout *tabItem="{ title: 'Members' }">
+    <GridLayout rows="auto, *" class="small-spacing">
+      <GridLayout row="0" columns="*">
+        <TextField
+          [(ngModel)]="member.email"
+          hint="Add member by email"
+          col="0"
+          keyboardType= "email"
+          returnKeyType="done"
+          (returnPress)="addMember()"
+          class="text-box">
+        </TextField>
+      </GridLayout>
+      <ListView [items]="members" row="1">
+        <template let-item="item">
+          <StackLayout>
+            <Label [text]="item.email" class="medium-spacing"></Label>
+          </StackLayout>
+        </template>
+      </ListView>
+    </GridLayout>
+  </StackLayout>
+</TabView>

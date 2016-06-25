@@ -133,45 +133,6 @@ export class MessageApi extends BaseLoopBackApi {
   }
 
   /**
-   * Create a new instance of the model and persist it into the data source.
-   *
-   * @param object data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns object[] An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Message` object.)
-   * </em>
-   */
-  public createMany(data: any = undefined) {
-    let method: string = "POST";
-
-    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/messages";
-    let urlParams: any = {
-    };
-
-    let params: any = {};
-
-    let result = this.request(method, url, urlParams, params, data);
-    return result;
-  }
-  public onCreateMany(data: any = undefined) {
-    let method: string = "POST";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/messages";
-    let urlParams: any = {
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
-    return result;
-  }
-
-  /**
    * Update an existing model instance or insert a new one into the data source.
    *
    * @param object data Request data.
@@ -360,7 +321,7 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateAll(where: any = undefined, data: any = undefined) {
+  public onUpdateAll(where: any = undefined,  data: any = undefined) {
     let method: string = "POST";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/messages/update";
     let urlParams: any = {
@@ -473,7 +434,7 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateAttributes(id: any, data: any = undefined) {
+  public onUpdateAttributes(id: any,  data: any = undefined) {
     let method: string = "PUT";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/messages/:id";
     let urlParams: any = {
@@ -581,12 +542,11 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params);
     return result;
   }
-  public onDestroyByIdAccountMessages(id: any, fk: any) {
+  public onDestroyByIdAccountMessages(id: any) {
     let method: string = "DELETE";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -628,12 +588,11 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateByIdAccountMessages(id: any, fk: any, data: any = undefined) {
+  public onUpdateByIdAccountMessages(id: any,  data: any = undefined) {
     let method: string = "PUT";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -705,50 +664,7 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onCreateAccountMessages(id: any, data: any = undefined) {
-    let method: string = "POST";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
-    return result;
-  }
-
-  /**
-   * Creates a new instance in messages of this model.
-   *
-   * @param any id User id
-   *
-   * @param object data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns object[] An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Message` object.)
-   * </em>
-   */
-  public createManyAccountMessages(id: any, data: any = undefined) {
-    let method: string = "POST";
-
-    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-
-    let result = this.request(method, url, urlParams, params, data);
-    return result;
-  }
-  public onCreateManyAccountMessages(id: any, data: any = undefined) {
+  public onCreateAccountMessages(id: any,  data: any = undefined) {
     let method: string = "POST";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
     let urlParams: any = {
@@ -883,12 +799,11 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params);
     return result;
   }
-  public onDestroyByIdRoomMessages(id: any, fk: any) {
+  public onDestroyByIdRoomMessages(id: any) {
     let method: string = "DELETE";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -930,12 +845,11 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateByIdRoomMessages(id: any, fk: any, data: any = undefined) {
+  public onUpdateByIdRoomMessages(id: any,  data: any = undefined) {
     let method: string = "PUT";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
     let urlParams: any = {
-      id: id,
-      fk: fk
+      id: id
     };
 
     let params: any = {};
@@ -1007,50 +921,7 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onCreateRoomMessages(id: any, data: any = undefined) {
-    let method: string = "POST";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
-    return result;
-  }
-
-  /**
-   * Creates a new instance in messages of this model.
-   *
-   * @param any id PersistedModel id
-   *
-   * @param object data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns object[] An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Message` object.)
-   * </em>
-   */
-  public createManyRoomMessages(id: any, data: any = undefined) {
-    let method: string = "POST";
-
-    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-
-    let result = this.request(method, url, urlParams, params, data);
-    return result;
-  }
-  public onCreateManyRoomMessages(id: any, data: any = undefined) {
+  public onCreateRoomMessages(id: any,  data: any = undefined) {
     let method: string = "POST";
     let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
     let urlParams: any = {

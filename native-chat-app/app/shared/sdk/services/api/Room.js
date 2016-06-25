@@ -72,12 +72,11 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onDestroyByIdAccounts = function (id, fk) {
+    RoomApi.prototype.onDestroyByIdAccounts = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -115,13 +114,12 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.onUpdateByIdAccounts = function (id, fk, data) {
+    RoomApi.prototype.onUpdateByIdAccounts = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -159,13 +157,12 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.onLinkAccounts = function (id, fk, data) {
+    RoomApi.prototype.onLinkAccounts = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -195,12 +192,11 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onUnlinkAccounts = function (id, fk) {
+    RoomApi.prototype.onUnlinkAccounts = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -284,12 +280,11 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onDestroyByIdMessages = function (id, fk) {
+    RoomApi.prototype.onDestroyByIdMessages = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -327,13 +322,12 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.onUpdateByIdMessages = function (id, fk, data) {
+    RoomApi.prototype.onUpdateByIdMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -619,40 +613,6 @@ var RoomApi = (function (_super) {
         return result;
     };
     RoomApi.prototype.onCreate = function (data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms";
-        var urlParams = {};
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data, true);
-        return result;
-    };
-    /**
-     * Create a new instance of the model and persist it into the data source.
-     *
-     * @param object data Request data.
-     *
-     * This method expects a subset of model properties as request parameters.
-     *
-     * @returns object[] An empty reference that will be
-     *   populated with the actual data once the response is returned
-     *   from the server.
-     *
-     * <em>
-     * (The remote method definition does not provide any description.
-     * This usually means the response is a `Room` object.)
-     * </em>
-     */
-    RoomApi.prototype.createMany = function (data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = config_service_1.LoopBackConfig.getPath() + "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms";
-        var urlParams = {};
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data);
-        return result;
-    };
-    RoomApi.prototype.onCreateMany = function (data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms";
@@ -1024,12 +984,11 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onDestroyByIdAccountRooms = function (id, fk) {
+    RoomApi.prototype.onDestroyByIdAccountRooms = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -1067,13 +1026,12 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.onUpdateByIdAccountRooms = function (id, fk, data) {
+    RoomApi.prototype.onUpdateByIdAccountRooms = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -1111,13 +1069,12 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    RoomApi.prototype.onLinkAccountRooms = function (id, fk, data) {
+    RoomApi.prototype.onLinkAccountRooms = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -1147,12 +1104,11 @@ var RoomApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    RoomApi.prototype.onUnlinkAccountRooms = function (id, fk) {
+    RoomApi.prototype.onUnlinkAccountRooms = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -1245,46 +1201,6 @@ var RoomApi = (function (_super) {
         return result;
     };
     RoomApi.prototype.onCreateAccountRooms = function (id, data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data, true);
-        return result;
-    };
-    /**
-     * Creates a new instance in rooms of this model.
-     *
-     * @param any id User id
-     *
-     * @param object data Request data.
-     *
-     * This method expects a subset of model properties as request parameters.
-     *
-     * @returns object[] An empty reference that will be
-     *   populated with the actual data once the response is returned
-     *   from the server.
-     *
-     * <em>
-     * (The remote method definition does not provide any description.
-     * This usually means the response is a `Room` object.)
-     * </em>
-     */
-    RoomApi.prototype.createManyAccountRooms = function (id, data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = config_service_1.LoopBackConfig.getPath() + "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data);
-        return result;
-    };
-    RoomApi.prototype.onCreateManyAccountRooms = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";

@@ -116,40 +116,6 @@ var MessageApi = (function (_super) {
         return result;
     };
     /**
-     * Create a new instance of the model and persist it into the data source.
-     *
-     * @param object data Request data.
-     *
-     * This method expects a subset of model properties as request parameters.
-     *
-     * @returns object[] An empty reference that will be
-     *   populated with the actual data once the response is returned
-     *   from the server.
-     *
-     * <em>
-     * (The remote method definition does not provide any description.
-     * This usually means the response is a `Message` object.)
-     * </em>
-     */
-    MessageApi.prototype.createMany = function (data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = config_service_1.LoopBackConfig.getPath() + "/" + config_service_1.LoopBackConfig.getApiVersion() + "/messages";
-        var urlParams = {};
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data);
-        return result;
-    };
-    MessageApi.prototype.onCreateMany = function (data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/messages";
-        var urlParams = {};
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data, true);
-        return result;
-    };
-    /**
      * Update an existing model instance or insert a new one into the data source.
      *
      * @param object data Request data.
@@ -512,12 +478,11 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.onDestroyByIdAccountMessages = function (id, fk) {
+    MessageApi.prototype.onDestroyByIdAccountMessages = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -555,13 +520,12 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.onUpdateByIdAccountMessages = function (id, fk, data) {
+    MessageApi.prototype.onUpdateByIdAccountMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -627,46 +591,6 @@ var MessageApi = (function (_super) {
         return result;
     };
     MessageApi.prototype.onCreateAccountMessages = function (id, data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data, true);
-        return result;
-    };
-    /**
-     * Creates a new instance in messages of this model.
-     *
-     * @param any id User id
-     *
-     * @param object data Request data.
-     *
-     * This method expects a subset of model properties as request parameters.
-     *
-     * @returns object[] An empty reference that will be
-     *   populated with the actual data once the response is returned
-     *   from the server.
-     *
-     * <em>
-     * (The remote method definition does not provide any description.
-     * This usually means the response is a `Message` object.)
-     * </em>
-     */
-    MessageApi.prototype.createManyAccountMessages = function (id, data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = config_service_1.LoopBackConfig.getPath() + "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data);
-        return result;
-    };
-    MessageApi.prototype.onCreateManyAccountMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
@@ -785,12 +709,11 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params);
         return result;
     };
-    MessageApi.prototype.onDestroyByIdRoomMessages = function (id, fk) {
+    MessageApi.prototype.onDestroyByIdRoomMessages = function (id) {
         var method = "DELETE";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, true);
@@ -828,13 +751,12 @@ var MessageApi = (function (_super) {
         var result = this.request(method, url, urlParams, params, data);
         return result;
     };
-    MessageApi.prototype.onUpdateByIdRoomMessages = function (id, fk, data) {
+    MessageApi.prototype.onUpdateByIdRoomMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "PUT";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
         var urlParams = {
-            id: id,
-            fk: fk
+            id: id
         };
         var params = {};
         var result = this.request(method, url, urlParams, params, data, true);
@@ -900,46 +822,6 @@ var MessageApi = (function (_super) {
         return result;
     };
     MessageApi.prototype.onCreateRoomMessages = function (id, data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data, true);
-        return result;
-    };
-    /**
-     * Creates a new instance in messages of this model.
-     *
-     * @param any id PersistedModel id
-     *
-     * @param object data Request data.
-     *
-     * This method expects a subset of model properties as request parameters.
-     *
-     * @returns object[] An empty reference that will be
-     *   populated with the actual data once the response is returned
-     *   from the server.
-     *
-     * <em>
-     * (The remote method definition does not provide any description.
-     * This usually means the response is a `Message` object.)
-     * </em>
-     */
-    MessageApi.prototype.createManyRoomMessages = function (id, data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = config_service_1.LoopBackConfig.getPath() + "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
-        var urlParams = {
-            id: id
-        };
-        var params = {};
-        var result = this.request(method, url, urlParams, params, data);
-        return result;
-    };
-    MessageApi.prototype.onCreateManyRoomMessages = function (id, data) {
         if (data === void 0) { data = undefined; }
         var method = "POST";
         var url = "/" + config_service_1.LoopBackConfig.getApiVersion() + "/rooms/:id/messages";

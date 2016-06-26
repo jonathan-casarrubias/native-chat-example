@@ -85,13 +85,12 @@ export class RoomComponent {
 
   sendMessage(): void {
     this.message.accountId = this._account.getCurrentId();
-    this.subscriptions.push(
-      this._room.createMessages(this.room.id, this.message)
+    let subscription = this._room.createMessages(this.room.id, this.message)
                 .subscribe(
                   () => this.message = new Message(),
-                  err => alert(err)
-                )
-    );
+                  err => alert(err),
+                  () => { subscription.unsubscribe() }
+                );
   }
 
   getMessages(): void {

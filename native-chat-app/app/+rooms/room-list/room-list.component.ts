@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
 import { Subject } from 'rxjs/Subject';
-import observableArray = require("data/observable-array");
+import { ObservableArray } from 'data/observable-array';
 import {
   LoopBackConfig,
   Room,
@@ -19,8 +19,9 @@ import {
 
 export class RoomsComponent {
 
-  private rooms = new observableArray.ObservableArray([]);
+  private rooms: ObservableArray<Room>;
   private room: RoomInterface = new Room();
+  private subscriptions = new Array();
   // Add to tuto
   constructor(private _account: AccountApi,  private _router: Router) {
       LoopBackConfig.setBaseURL(BASE_URL);
@@ -31,23 +32,35 @@ export class RoomsComponent {
       this.getRooms();
   }
 
+  onOnDestroy() {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
   private addRoom(): void {
-    this._account.createRooms(this._account.getCurrentId(), this.room)
-                 .subscribe(()=> this.room = new Room());
+    this.subscriptions.push(
+      this._account.createRooms(this._account.getCurrentId(), this.room)
+                   .subscribe(()  => this.room = new Room(), err => alert(err))
+    );
   }
 
   private getRooms(): void {
-    this._account.getRooms(this._account.getCurrentId()).subscribe((rooms: Array<Room>) => {
-        rooms.forEach(room => this.onRoom(room))
-    }); 
-      
-    this._account.onCreateRooms(this._account.getCurrentId()).subscribe((room: Room) => this.onRoom(room));
-    this._account.onLinkRooms(this._account.getCurrentId()).subscribe((room: Room) => this.onRoom(room)); // Add to tuto
+    this.subscriptions.push(
+      this._account.getRooms(this._account.getCurrentId()).subscribe((rooms: Array<Room>) => {
+          this.rooms = new ObservableArray<Room>(rooms);
+      })
+    ); 
+    this.subscriptions.push(
+      this._account.onCreateRooms(this._account.getCurrentId())
+                   .subscribe((room: Room) => this.onRoom(room))
+    );
+    this.subscriptions.push(
+      this._account.onLinkRooms(this._account.getCurrentId())
+                   .subscribe((room: Room) => this.onRoom(room))
+    );
   }
 
   private onRoom(room: Room) { this.rooms.push(room); }
 
-  // Add to tuto
   private join(room: RoomInterface) {
     this._router.navigate([ 'RoomComponent', room ]); 
   }

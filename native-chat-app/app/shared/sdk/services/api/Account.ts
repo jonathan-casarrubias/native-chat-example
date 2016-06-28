@@ -1866,7 +1866,7 @@ export class AccountApi extends BaseLoopBackApi {
   public getCurrent(): any {
     let method: string = "GET";
 
-    let url: string = LoopBackConfig.getPath() + "/accounts" + "/:id";
+    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts" + "/:id";
     let id: any = this.auth.getCurrentUserId();
     if (id == null) {
       id = '__anonymous__';

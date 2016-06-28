@@ -4,50 +4,53 @@ import { ObservableArray } from 'data/observable-array';
 import {
   LoopBackConfig,
   Room,
-  RoomInterface,
   RoomApi,
+  RoomInterface,
   Account,
   AccountApi,
   AccountInterface,
   Message,
   MessageInterface,
   BASE_URL,
-  API_VERSION
+  API_VERSION,
+  LoggerService
 } from '../../shared';
 
 @Component({
-  selector: 'room',
+  selector   : 'room',
   templateUrl: '+rooms/room/room.component.html',
-  styleUrls: ['+rooms/room/room.component.css'],
-  providers: []
+  styleUrls  : ['+rooms/room/room.component.css'],
+  providers  : []
 })
 
 export class RoomComponent {
 
-  private loggedId : any;
-  private member   : Account = new Account();
-  private room     : RoomInterface = new Room();
-  private message  : MessageInterface = new Message();
-  private messages : ObservableArray<Message>;
-  private members  : ObservableArray<Account>;
+  private loggedId: number | string;
+  private room    : RoomInterface = new Room();
+  private member  : AccountInterface = new Account();
+  private message : MessageInterface = new Message();
+  private messages: ObservableArray<Message>;
+  private members : ObservableArray<Account>;
   private subscriptions = new Array();
 
   constructor(
     private _account: AccountApi,
-    private _room: RoomApi,
-    private _params: RouteParams,
-    private _router: Router
+    private _room   : RoomApi,
+    private _params : RouteParams,
+    private _router : Router,
+    private _logger : LoggerService
   ) {
     LoopBackConfig.setBaseURL(BASE_URL);
     LoopBackConfig.setApiVersion(API_VERSION);
     this.loggedId = this._account.getCurrentId();
+    this._logger.info('Room Component is Loaded');
   }
 
   ngAfterViewInit() {
     this.getRoom(this._params.get('id'));
   }
 
-  onOnDestroy() {
+  ngOnDestroy() {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
@@ -69,17 +72,13 @@ export class RoomComponent {
 
   subscribe(): void {
     this.subscriptions.push(
-      this._room.onCreateMessages(this.room.id).subscribe((message: Message) => {
-        console.log('onCreate', JSON.stringify(message));
-        this.messages.unshift(message);
-      })
+      this._room.onCreateMessages(this.room.id)
+                .subscribe((message: Message) => this.messages.unshift(message))
     );
 
     this.subscriptions.push(
-      this._room.onLinkAccounts(this.room.id).subscribe((account: Account) => {
-        console.log('onLinkAccount', JSON.stringify(account));
-        this.members.unshift(account)
-      })
+      this._room.onLinkAccounts(this.room.id)
+                .subscribe((account: Account) => this.members.unshift(account))
     );
   }
 

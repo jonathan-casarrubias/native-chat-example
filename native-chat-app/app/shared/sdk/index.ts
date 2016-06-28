@@ -20,6 +20,7 @@ export const API_PROVIDERS: any[] = [
   MessageApi
 ];
 export * from './models/index';
+export * from './services/api.d';
 export * from './services/api.service';
 export * from './services/config.service';
 export * from './services/auth.service';

@@ -9,6 +9,12 @@
   "mixins": {
     "PubSub": true
   },
+  "sdk": {
+    "enabled": true,
+    "blacklist": {
+      "findOne": false
+    }
+  },
   "properties": {},
   "validations": [],
   "relations": {

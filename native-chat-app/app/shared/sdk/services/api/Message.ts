@@ -121,16 +121,6 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onCreate(data: any = undefined) {
-    let method: string = "POST";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/messages";
-    let urlParams: any = {
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
-    return result;
-  }
 
   /**
    * Update an existing model instance or insert a new one into the data source.
@@ -158,16 +148,6 @@ export class MessageApi extends BaseLoopBackApi {
     let params: any = {};
 
     let result = this.request(method, url, urlParams, params, data);
-    return result;
-  }
-  public onUpsert(data: any = undefined) {
-    let method: string = "PUT";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/messages";
-    let urlParams: any = {
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
     return result;
   }
 
@@ -321,19 +301,6 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateAll(where: any = undefined,  data: any = undefined) {
-    let method: string = "POST";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/messages/update";
-    let urlParams: any = {
-    };
-
-    let params: any = {};
-    if (where !== undefined) {
-      params.where = where;
-    }
-    let result = this.request(method, url, urlParams, params, data, true);
-    return result;
-  }
 
   /**
    * Delete a model instance by id from the data source.
@@ -360,17 +327,6 @@ export class MessageApi extends BaseLoopBackApi {
     let params: any = {};
 
     let result = this.request(method, url, urlParams, params);
-    return result;
-  }
-  public onDeleteById(id: any) {
-    let method: string = "DELETE";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/messages/:id";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, true);
     return result;
   }
 
@@ -434,17 +390,6 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onUpdateAttributes(id: any,  data: any = undefined) {
-    let method: string = "PUT";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/messages/:id";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
-    return result;
-  }
 
   /**
    * Create a change stream.
@@ -471,16 +416,6 @@ export class MessageApi extends BaseLoopBackApi {
     let params: any = {};
 
     let result = this.request(method, url, urlParams, params, options);
-    return result;
-  }
-  public onCreateChangeStream(options: any = undefined) {
-    let method: string = "POST";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/messages/change-stream";
-    let urlParams: any = {
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, options, true);
     return result;
   }
 
@@ -542,17 +477,6 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params);
     return result;
   }
-  public onDestroyByIdAccountMessages(id: any) {
-    let method: string = "DELETE";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, true);
-    return result;
-  }
 
   /**
    * Update a related item by id for messages.
@@ -586,17 +510,6 @@ export class MessageApi extends BaseLoopBackApi {
     let params: any = {};
 
     let result = this.request(method, url, urlParams, params, data);
-    return result;
-  }
-  public onUpdateByIdAccountMessages(id: any,  data: any = undefined) {
-    let method: string = "PUT";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages/:fk";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
     return result;
   }
 
@@ -664,17 +577,6 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onCreateAccountMessages(id: any,  data: any = undefined) {
-    let method: string = "POST";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
-    return result;
-  }
 
   /**
    * Deletes all messages of this model.
@@ -698,17 +600,6 @@ export class MessageApi extends BaseLoopBackApi {
     let params: any = {};
 
     let result = this.request(method, url, urlParams, params);
-    return result;
-  }
-  public onDeleteAccountMessages(id: any) {
-    let method: string = "DELETE";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/messages";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, true);
     return result;
   }
 
@@ -799,17 +690,6 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params);
     return result;
   }
-  public onDestroyByIdRoomMessages(id: any) {
-    let method: string = "DELETE";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, true);
-    return result;
-  }
 
   /**
    * Update a related item by id for messages.
@@ -843,17 +723,6 @@ export class MessageApi extends BaseLoopBackApi {
     let params: any = {};
 
     let result = this.request(method, url, urlParams, params, data);
-    return result;
-  }
-  public onUpdateByIdRoomMessages(id: any,  data: any = undefined) {
-    let method: string = "PUT";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
     return result;
   }
 
@@ -921,17 +790,6 @@ export class MessageApi extends BaseLoopBackApi {
     let result = this.request(method, url, urlParams, params, data);
     return result;
   }
-  public onCreateRoomMessages(id: any,  data: any = undefined) {
-    let method: string = "POST";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, data, true);
-    return result;
-  }
 
   /**
    * Deletes all messages of this model.
@@ -955,17 +813,6 @@ export class MessageApi extends BaseLoopBackApi {
     let params: any = {};
 
     let result = this.request(method, url, urlParams, params);
-    return result;
-  }
-  public onDeleteRoomMessages(id: any) {
-    let method: string = "DELETE";
-    let url: string = "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
-    let urlParams: any = {
-      id: id
-    };
-
-    let params: any = {};
-    let result = this.request(method, url, urlParams, params, true);
     return result;
   }
 

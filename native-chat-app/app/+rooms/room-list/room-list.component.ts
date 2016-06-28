@@ -3,6 +3,7 @@ import { Router } from '@angular/router-deprecated';
 import { Subject } from 'rxjs/Subject';
 import { ObservableArray } from 'data/observable-array';
 import {
+  LoggerService,
   LoopBackConfig,
   Room,
   AccountApi,
@@ -23,9 +24,14 @@ export class RoomsComponent {
   private room: RoomInterface = new Room();
   private subscriptions = new Array();
   // Add to tuto
-  constructor(private _account: AccountApi,  private _router: Router) {
+  constructor(
+    private _account: AccountApi,
+    private _router: Router,
+    private _logger: LoggerService
+  ) {
       LoopBackConfig.setBaseURL(BASE_URL);
       LoopBackConfig.setApiVersion(API_VERSION);
+      this._logger.info('Room List Component is Loaded');
   }
 
   ngAfterViewInit() {

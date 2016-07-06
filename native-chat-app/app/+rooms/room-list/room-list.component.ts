@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router-deprecated';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import { ObservableArray } from 'data/observable-array';
+import { Animation } from "ui/animation";
+import { View } from "ui/core/view";
 import {
   LoggerService,
   LoopBackConfig,
@@ -19,8 +21,8 @@ import {
 })
 
 export class RoomsComponent {
-
-  private rooms: ObservableArray<Room>;
+  @ViewChild("roomsContainer") roomsContainer: ElementRef;
+  private rooms: ObservableArray<RoomInterface>;
   private room: RoomInterface = new Room();
   private subscriptions = new Array();
   // Add to tuto
@@ -51,8 +53,10 @@ export class RoomsComponent {
 
   private getRooms(): void {
     this.subscriptions.push(
-      this._account.getRooms(this._account.getCurrentId()).subscribe((rooms: Array<Room>) => {
-          this.rooms = new ObservableArray<Room>(rooms);
+      this._account.getRooms(this._account.getCurrentId(), {
+        order: 'id DESC'
+      }).subscribe((rooms: Array<Room>) => {
+          this.rooms = new ObservableArray<RoomInterface>(rooms);
       })
     ); 
     this.subscriptions.push(
@@ -67,7 +71,11 @@ export class RoomsComponent {
 
   private onRoom(room: Room) { this.rooms.push(room); }
 
-  private join(room: RoomInterface) {
-    this._router.navigate([ 'RoomComponent', room ]); 
+  private join(e) {
+    this._router.navigate([ '/rooms',  this.rooms.getItem(e.index).id ]); 
+  }
+
+  private signout() {
+    this._account.logout().subscribe(() => this._router.navigate(['/sign']));
   }
 }

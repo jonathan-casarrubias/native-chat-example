@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, RouteParams } from '@angular/router-deprecated';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ObservableArray } from 'data/observable-array';
 import {
   LoopBackConfig,
@@ -36,7 +36,7 @@ export class RoomComponent {
   constructor(
     private _account: AccountApi,
     private _room   : RoomApi,
-    private _params : RouteParams,
+    private _route   : ActivatedRoute,
     private _router : Router,
     private _logger : LoggerService
   ) {
@@ -47,7 +47,7 @@ export class RoomComponent {
   }
 
   ngAfterViewInit() {
-    this.getRoom(this._params.get('id'));
+    this._route.params.subscribe(params => this.getRoom(+params['id']));
   }
 
   ngOnDestroy() {
@@ -104,10 +104,14 @@ export class RoomComponent {
   }
 
   addMember(): void {
+    console.log(JSON.stringify(this.member));
     this.subscriptions.push(
       this._account.findOne({ where: this.member }).subscribe(
         (member: AccountInterface) => this.linkMember(member), 
-        err => alert('Member not found')
+        err => { 
+          alert('Member not found');
+          console.log(JSON.stringify(err));
+        }
       )
     );
   }

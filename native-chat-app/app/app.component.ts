@@ -1,28 +1,10 @@
-import { Component } from "@angular/core";
-import { Account, AccountApi } from './shared';
-import { Router, RouteConfig } from "@angular/router-deprecated";
-import { NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
-import { SignComponent } from "./+sign";
-import { RoomsComponent, RoomComponent } from "./+rooms";
+import {Component} from "@angular/core";
+import {ROUTER_DIRECTIVES} from '@angular/router';
+import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
 
 @Component({
-    selector: "my-app",
-    directives: [ NS_ROUTER_DIRECTIVES ],
-    providers: [ NS_ROUTER_PROVIDERS ],
-    template: "<page-router-outlet></page-router-outlet>"
+  selector: "main",
+  directives: [NS_ROUTER_DIRECTIVES],
+  template: "<page-router-outlet></page-router-outlet>"
 })
-
-@RouteConfig([
-  { path: "/sign", component: SignComponent, name: "SignComponent", useAsDefault: true },
-  { path: "/rooms", component: RoomsComponent, name: "RoomsComponent"  },
-  { path: "/rooms/:id", component: RoomComponent, name: "RoomComponent"  }
-])
-
-export class AppComponent {
-    constructor(private _router: Router, private _account: AccountApi) {
-        this._router.subscribe(() => {
-            if (!this._account.isAuthenticated())
-            this._router.navigate(['SignComponent'])
-        })
-    }
-}
+export class AppComponent {}

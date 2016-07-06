@@ -43,3 +43,27 @@ Button {
 .text-white {
   color: white;
 }
+
+.hide-in-top{
+  transform: translate(0, -1000);
+}
+
+.hide-in-bottom{
+  transform: translate(0, 1000);
+}
+
+.pull{
+  transform: translate(0, 20);
+}
+
+.hide-in-left{
+  transform: translate(-1000, 0);
+}
+
+.hide-in-right{
+  transform: translate(1000, 0);
+}
+
+.opacity-zero {
+  opacity: 0;
+}

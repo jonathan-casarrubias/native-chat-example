@@ -7,6 +7,7 @@ import { LoopBackAuth } from '../auth.service';
 import { ErrorHandler } from '../errorHandler.service';
 import { JSONSearchParams } from '../search.params';
 import { LoopBackFilterInterface } from '../api.d';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -45,17 +46,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public findByIdAccounts(id: any, fk: any) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -73,17 +71,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public destroyByIdAccounts(id: any, fk: any) {
     let method: string = "DELETE";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
   public onDestroyByIdAccounts(id: any) {
     let method: string = "DELETE";
@@ -119,17 +114,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public updateByIdAccounts(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onUpdateByIdAccounts(id: any,  data: any = undefined) {
     let method: string = "PUT";
@@ -165,17 +157,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public linkAccounts(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onLinkAccounts(id: any,  data: any = undefined) {
     let method: string = "PUT";
@@ -204,17 +193,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public unlinkAccounts(id: any, fk: any) {
     let method: string = "DELETE";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
   public onUnlinkAccounts(id: any) {
     let method: string = "DELETE";
@@ -246,17 +232,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public existsAccounts(id: any, fk: any) {
     let method: string = "HEAD";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/rel/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -277,17 +260,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public findByIdMessages(id: any, fk: any) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -305,17 +285,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public destroyByIdMessages(id: any, fk: any) {
     let method: string = "DELETE";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
   public onDestroyByIdMessages(id: any) {
     let method: string = "DELETE";
@@ -351,17 +328,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public updateByIdMessages(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onUpdateByIdMessages(id: any,  data: any = undefined) {
     let method: string = "PUT";
@@ -393,19 +367,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public getAccounts(id: any, filter: LoopBackFilterInterface = undefined) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-    if (filter !== undefined) {
-      params.filter = filter;
-    }
-
+    if (filter) params.filter = filter;
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -428,16 +397,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public createAccounts(id: any, data: any = undefined) {
     let method: string = "POST";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onCreateAccounts(id: any,  data: any = undefined) {
     let method: string = "POST";
@@ -464,16 +430,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public deleteAccounts(id: any) {
     let method: string = "DELETE";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
   public onDeleteAccounts(id: any) {
     let method: string = "DELETE";
@@ -504,16 +467,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public countAccounts(id: any, where: any = undefined) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/accounts/count";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
+    if (where) params.where = where;
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -534,19 +495,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public getMessages(id: any, filter: LoopBackFilterInterface = undefined) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-    if (filter !== undefined) {
-      params.filter = filter;
-    }
-
+    if (filter) params.filter = filter;
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -569,16 +525,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public createMessages(id: any, data: any = undefined) {
     let method: string = "POST";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onCreateMessages(id: any,  data: any = undefined) {
     let method: string = "POST";
@@ -605,16 +558,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public deleteMessages(id: any) {
     let method: string = "DELETE";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
   public onDeleteMessages(id: any) {
     let method: string = "DELETE";
@@ -645,16 +595,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public countMessages(id: any, where: any = undefined) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/messages/count";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
+    if (where) params.where = where;
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -675,15 +623,12 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public create(data: any = undefined) {
     let method: string = "POST";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms";
     let urlParams: any = {
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onCreate(data: any = undefined) {
     let method: string = "POST";
@@ -714,15 +659,12 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public upsert(data: any = undefined) {
     let method: string = "PUT";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms";
     let urlParams: any = {
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onUpsert(data: any = undefined) {
     let method: string = "PUT";
@@ -750,16 +692,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public exists(id: any) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id/exists";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -780,19 +719,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public findById(id: any, filter: LoopBackFilterInterface = undefined) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-    if (filter !== undefined) {
-      params.filter = filter;
-    }
-
+    if (filter) params.filter = filter;
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -811,18 +745,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public find(filter: LoopBackFilterInterface = undefined) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms";
     let urlParams: any = {
     };
-
     let params: any = {};
-    if (filter !== undefined) {
-      params.filter = filter;
-    }
-
+    if (filter) params.filter = filter;
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -841,18 +770,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public findOne(filter: LoopBackFilterInterface = undefined) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/findOne";
     let urlParams: any = {
     };
-
     let params: any = {};
-    if (filter !== undefined) {
-      params.filter = filter;
-    }
-
+    if (filter) params.filter = filter;
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -872,18 +796,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public updateAll(where: any = undefined, data: any = undefined) {
     let method: string = "POST";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/update";
     let urlParams: any = {
     };
-
     let params: any = {};
-    if (where !== undefined) {
-      params.where = where;
-    }
-
+    if (where) params.where = where;
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onUpdateAll(where: any = undefined,  data: any = undefined) {
     let method: string = "POST";
@@ -915,16 +834,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public deleteById(id: any) {
     let method: string = "DELETE";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
   public onDeleteById(id: any) {
     let method: string = "DELETE";
@@ -953,18 +869,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public count(where: any = undefined) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/count";
     let urlParams: any = {
     };
-
     let params: any = {};
-    if (where !== undefined) {
-      params.where = where;
-    }
-
+    if (where) params.where = where;
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -987,16 +898,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public updateAttributes(id: any, data: any = undefined) {
     let method: string = "PUT";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/:id";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onUpdateAttributes(id: any,  data: any = undefined) {
     let method: string = "PUT";
@@ -1027,15 +935,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public createChangeStream(options: any = undefined) {
     let method: string = "POST";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/rooms/change-stream";
     let urlParams: any = {
     };
-
     let params: any = {};
-
+    if (options) params.options = options;
     let result = this.request(method, url, urlParams, params, options);
-    return result;
+    return result; 
   }
   public onCreateChangeStream(options: any = undefined) {
     let method: string = "POST";
@@ -1066,17 +972,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public findByIdAccountRooms(id: any, fk: any) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -1094,17 +997,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public destroyByIdAccountRooms(id: any, fk: any) {
     let method: string = "DELETE";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
   public onDestroyByIdAccountRooms(id: any) {
     let method: string = "DELETE";
@@ -1140,17 +1040,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public updateByIdAccountRooms(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onUpdateByIdAccountRooms(id: any,  data: any = undefined) {
     let method: string = "PUT";
@@ -1186,17 +1083,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public linkAccountRooms(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onLinkAccountRooms(id: any,  data: any = undefined) {
     let method: string = "PUT";
@@ -1225,17 +1119,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public unlinkAccountRooms(id: any, fk: any) {
     let method: string = "DELETE";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
   public onUnlinkAccountRooms(id: any) {
     let method: string = "DELETE";
@@ -1267,17 +1158,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public existsAccountRooms(id: any, fk: any) {
     let method: string = "HEAD";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/rel/:fk";
     let urlParams: any = {
       id: id,
       fk: fk
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -1298,19 +1186,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public getAccountRooms(id: any, filter: LoopBackFilterInterface = undefined) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-    if (filter !== undefined) {
-      params.filter = filter;
-    }
-
+    if (filter) params.filter = filter;
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -1333,16 +1216,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public createAccountRooms(id: any, data: any = undefined) {
     let method: string = "POST";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params, data);
-    return result;
+    return result; 
   }
   public onCreateAccountRooms(id: any,  data: any = undefined) {
     let method: string = "POST";
@@ -1369,16 +1249,13 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public deleteAccountRooms(id: any) {
     let method: string = "DELETE";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
   public onDeleteAccountRooms(id: any) {
     let method: string = "DELETE";
@@ -1409,16 +1286,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public countAccountRooms(id: any, where: any = undefined) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/accounts/:id/rooms/count";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-
+    if (where) params.where = where;
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
   /**
@@ -1439,19 +1314,14 @@ export class RoomApi extends BaseLoopBackApi {
    */
   public getMessageRoom(id: any, refresh: boolean = undefined) {
     let method: string = "GET";
-
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/messages/:id/room";
     let urlParams: any = {
       id: id
     };
-
     let params: any = {};
-    if (refresh !== undefined) {
-      params.refresh = refresh;
-    }
-
+    if (refresh) params.refresh = refresh;
     let result = this.request(method, url, urlParams, params);
-    return result;
+    return result; 
   }
 
 

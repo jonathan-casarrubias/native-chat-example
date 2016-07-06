@@ -1,13 +1,18 @@
-<ActionBar title="My Rooms"></ActionBar>
-<GridLayout rows="auto, *"  class="small-spacing">
-  <GridLayout row="0" columns="*">
-    <TextField [(ngModel)]="room.name" hint="Add new room..." col="0" (returnPress)="addRoom()" class="text-box"></TextField>
+<GridLayout #roomsContainer>
+  <ActionBar title="My Room List">
+    <ActionItem android.systemIcon="ic_menu_close_clear_cancel" android.position="actionBar" (tap)="signout()"></ActionItem>
+  </ActionBar>
+  <GridLayout rows="auto, *" class="small-spacing">
+    <GridLayout row="0" columns="*">
+      <TextField [(ngModel)]="room.name" hint="Add new room..." col="0" (returnPress)="addRoom()"
+        class="text-box"></TextField>
+    </GridLayout>
+    <ListView [items]="rooms" row="1" (itemTap)="join($event)">
+      <template let-item="item">
+        <StackLayout>
+          <Label [text]="item.name" class="medium-spacing"></Label>
+        </StackLayout>
+      </template>
+    </ListView>
   </GridLayout>
-  <ListView [items]="rooms" row="1">
-    <template let-item="item">
-      <StackLayout>
-        <Label (tap)="join(item)" [text]="item.name" class="medium-spacing"></Label>
-      </StackLayout>
-    </template>
-  </ListView>
 </GridLayout>

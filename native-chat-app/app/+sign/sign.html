@@ -1,23 +1,30 @@
-<GridLayout #background
-    scaleX="1.4"
-    scaleY="1.4"
-    class="background"></GridLayout>
-<StackLayout>
-    <Image src="res://nsa_logo" stretch="none" horizontalAlignment="center"></Image>
-    <TextField
-        #email
-        hint                   = "Email Address"
-        keyboardType           = "email"
-        [(ngModel)]            = "account.email"
-        autocorrect            = "false"
-        autocapitalizationType = "none">
-    </TextField>
-    <TextField
-        #password
-        hint        = "Password"
-        [(ngModel)] = "account.password"
-        secure      = "true">
-    </TextField>
-    <Button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" class="primary-btn" (tap)="submit()"></Button>
-    <Button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()"></Button>
-</StackLayout>
+<GridLayout #signContainer (loaded)="loadUI()">
+    <GridLayout
+        #background
+        scaleX="1.6"
+        scaleY="1.6"
+        class="background"></GridLayout>
+    <StackLayout #stackContainer>
+        <Image #logo src="res://nsa_logo" stretch="none" horizontalAlignment="center" class="opacity-zero hide-in-top"></Image>
+        <TextField
+            #email
+            hint                   = "Email Address"
+            keyboardType           = "email"
+            autocorrect            = "false"
+            autocapitalizationType = "none"
+            class                  = "opacity-zero"
+            [(ngModel)]            = "account.email">
+        </TextField>
+        <TextField
+            #password
+            hint            = "Password"
+            secure          = "true"
+            returnKeyType   = "done"
+            class           = "opacity-zero"
+            [(ngModel)]     = "account.password"
+            (returnPress)   = "submit()">
+        </TextField>
+        <Button #primaryBtn [text]="isLoggingIn ? 'Sign in' : 'Sign up'" class="primary-btn opacity-zero hide-in-right" (tap)="submit()"></Button>
+        <Button #secondaryBtn [text]="isLoggingIn ? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()" class="opacity-zero hide-in-right"></Button>
+    </StackLayout>
+</GridLayout>

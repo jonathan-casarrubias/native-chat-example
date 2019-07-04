@@ -6,7 +6,9 @@
     "start": "node .",
     "pretest": "jshint .",
     "posttest": "nsp check",
-    "build:sdk": "./node_modules/.bin/lb-sdk server/server.js ../native-chat-app/app/shared/sdk -d nativescript2 -i enabled"
+    "build:sdk": "./node_modules/.bin/lb-sdk server/server.js ../native-chat-app/app/shared/sdk -d nativescript2 -i enabled",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -17,7 +19,8 @@
     "loopback-component-explorer": "^2.4.0",
     "loopback-component-pubsub": "^1.0.17",
     "loopback-datasource-juggler": "^2.39.0",
-    "serve-favicon": "^2.0.1"
+    "serve-favicon": "^2.0.1",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "jshint": "^2.5.6",
@@ -29,5 +32,6 @@
     "url": ""
   },
   "license": "UNLICENSED",
-  "description": "native-chat-api"
+  "description": "native-chat-api",
+  "snyk": true
 }
